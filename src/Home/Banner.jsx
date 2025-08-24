@@ -80,6 +80,16 @@ function Banner() {
     }
   };
 
+  function handleScrollByHand() {
+    const container = refContainer_scroll.current;
+    if (!container) return;
+
+    const width = container.offsetWidth;
+    const scrollLeft = container.scrollLeft;
+    const index = Math.round(scrollLeft / width);
+
+    setCurrentIndex(index);
+  }
   return (
     <>
       <div
@@ -88,7 +98,7 @@ function Banner() {
         onScroll={() => {
           handleScroll();
         }}
-        o
+        onScrollEnd={handleScrollByHand}
       >
         {extendedBanner.map((src, i) => (
           <span className=" flex-[0_0_100%] h-full" key={i}>
