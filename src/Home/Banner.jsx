@@ -54,35 +54,19 @@ function Banner() {
   }, [currentIndex]);
 
   // Handle scroll event for loop
-  const scrollTimeoutRef = useRef(null);
-
   const handleScroll = () => {
+    if (!isJumping) return;
     const container = refContainer_scroll.current;
-    if (!container) return;
+    const width = container.offsetWidth;
+    const scrollLeft = container.scrollLeft;
 
-    // Clear timeout to reset debounce
-    if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current);
+    // When scroll finished moving to clone slide (approximately)
+    if (Math.round(scrollLeft) === banner.length * width) {
+      // Disable smooth and jump to first slide instantly
+      scrollToIndex(0, false);
+      setCurrentIndex(0);
+      setIsJumping(false);
     }
-
-    scrollTimeoutRef.current = setTimeout(() => {
-      // scroll ended
-      const width = container.offsetWidth;
-      const scrollLeft = container.scrollLeft;
-
-      const index = Math.round(scrollLeft / width);
-      setCurrentIndex(index);
-
-      const target = banner.length * width;
-      const diff = Math.abs(scrollLeft - target);
-
-      if (isJumping && diff < 2) {
-        scrollToIndex(0, false);
-        setCurrentIndex(0);
-        setIsJumping(false);
-        console.log("Jumped back to index 0");
-      }
-    }, 100); // Wait 100ms after scroll stops
   };
 
   function handleScrollByHand() {
