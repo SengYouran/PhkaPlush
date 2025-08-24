@@ -54,30 +54,35 @@ function Banner() {
   }, [currentIndex]);
 
   // Handle scroll event for loop
+  const scrollTimeoutRef = useRef(null);
+
   const handleScroll = () => {
     const container = refContainer_scroll.current;
     if (!container) return;
 
-    const width = container.offsetWidth;
-    const scrollLeft = container.scrollLeft;
-
-    // 👉 Manual scroll: update currentIndex
-    const index = Math.round(scrollLeft / width);
-    setCurrentIndex(index);
-
-    // 👉 Loop jump logic (auto scroll to last slide)
-    const target = banner.length * width;
-    const diff = Math.abs(scrollLeft - target);
-    console.log("container.offsetWidth =", container.offsetWidth);
-    console.log("scrollLeft =", scrollLeft);
-    console.log("Expected target =", banner.length * container.offsetWidth);
-
-    if (isJumping && diff < 2) {
-      scrollToIndex(0, false);
-      setCurrentIndex(0);
-      setIsJumping(false);
-      console.log("Jumped back to index 0");
+    // Clear timeout to reset debounce
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
     }
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      // scroll ended
+      const width = container.offsetWidth;
+      const scrollLeft = container.scrollLeft;
+
+      const index = Math.round(scrollLeft / width);
+      setCurrentIndex(index);
+
+      const target = banner.length * width;
+      const diff = Math.abs(scrollLeft - target);
+
+      if (isJumping && diff < 2) {
+        scrollToIndex(0, false);
+        setCurrentIndex(0);
+        setIsJumping(false);
+        console.log("Jumped back to index 0");
+      }
+    }, 100); // Wait 100ms after scroll stops
   };
 
   function handleScrollByHand() {
@@ -95,7 +100,7 @@ function Banner() {
       <div
         className="conrainer-scroll flex overflow-x-auto w-full h-[40vh] md:h-full scroll-smooth scroll-snap-x scroll-snap-mandatory "
         ref={refContainer_scroll}
-        onScroll={() => {
+        onScrollEndCapture={() => {
           handleScroll();
         }}
         onScrollEnd={handleScrollByHand}
