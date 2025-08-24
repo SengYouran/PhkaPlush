@@ -1,0 +1,22 @@
+@import "tailwindcss";
+.conrainer-scroll::-webkit-scrollbar {
+  display: none;
+}
+.auto-border.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color:rgb(236, 72, 153);
+  animation: fillprogress 5s linear forwards;
+}
+@keyframes fillprogress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
