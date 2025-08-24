@@ -55,14 +55,21 @@ function Banner() {
 
   // Handle scroll event for loop
   const handleScroll = () => {
-    if (!isJumping) return;
     const container = refContainer_scroll.current;
+    if (!container) return;
+
     const width = container.offsetWidth;
     const scrollLeft = container.scrollLeft;
 
-    // When scroll finished moving to clone slide (approximately)
-    if (Math.round(scrollLeft) === banner.length * width) {
-      // Disable smooth and jump to first slide instantly
+    // 👉 Manual scroll: update currentIndex
+    const index = Math.round(scrollLeft / width);
+    setCurrentIndex(index);
+
+    // 👉 Loop jump logic (auto scroll to last slide)
+    const target = banner.length * width;
+    const diff = Math.abs(scrollLeft - target);
+
+    if (isJumping && diff < 2) {
       scrollToIndex(0, false);
       setCurrentIndex(0);
       setIsJumping(false);
@@ -84,7 +91,7 @@ function Banner() {
       <div
         className="conrainer-scroll flex overflow-x-auto w-full h-[40vh] md:h-full scroll-smooth scroll-snap-x scroll-snap-mandatory "
         ref={refContainer_scroll}
-        onScrollEndCapture={() => {
+        onScroll={() => {
           handleScroll();
         }}
         onScrollEnd={handleScrollByHand}
