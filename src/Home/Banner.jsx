@@ -94,8 +94,8 @@ function Banner() {
         {banner.map((_, i) => (
           <div
             key={i}
-            className={`w-[30px] h-[3px] rounded bg-green-100 transition-all duration-300 ${
-              i === currentIndex % banner.length ? "bg-green-500" : ""
+            className={`w-[30px] h-[3px] bg-green-100 rounded relative overflow-hidden auto-border ${
+              i === currentIndex % banner.length ? "active" : ""
             }`}
           ></div>
         ))}
