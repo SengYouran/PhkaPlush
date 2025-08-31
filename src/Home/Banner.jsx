@@ -21,7 +21,7 @@ function Banner() {
 
     container.style.scrollBehavior = smooth ? "smooth" : "auto";
     container.scrollTo({
-      left: index * width,
+      left: index * width ,
       behavior: smooth ? "smooth" : "auto",
     });
   };
