@@ -29,7 +29,14 @@ function ContextProvider({ children }) {
       return [];
     }
   });
-
+  const [counters, setCounters] = useState(() => {
+    try {
+      const counter = localStorage.getItem("storeCounter");
+      return counter ? JSON.parse(counter) : {};
+    } catch {
+      return {};
+    }
+  });
   // Save userAccount changes to localStorage
   useEffect(() => {
     localStorage.setItem("UserAccount", JSON.stringify(userAccount));

@@ -1,9 +1,13 @@
-import React from 'react'
-
+import React from "react";
+import Product from "../Shop/Product";
+import { Outlet } from "react-router-dom";
+Outlet;
 function Shop() {
   return (
-    <div>Shop</div>
-  )
+    <div>
+      <Outlet />
+    </div>
+  );
 }
 
-export default Shop
+export default Shop;

@@ -18,7 +18,7 @@ function Mobile() {
   const [storeBags, setStoreBage] = useState(0);
   return (
     <>
-      <header className="fixed w-screen flex justify-between item-center px-4 py-3 shadow bg-white shadow-gray-200 md:hidden">
+      <header className="fixed z-60 w-screen flex justify-between item-center px-4 py-3 shadow bg-white shadow-gray-200 md:hidden">
         <span
           className=" text-xl  text-pink-500 cursor-pointer"
           onClick={() => setShowNavLink(true)}
@@ -57,7 +57,7 @@ function Mobile() {
       <nav
         className={`fixed top-0 left-0 bg-white w-[0] h-[100vh]  transition-all duration-400 ease-in-out -z-10 transform -translate-x-8 opacity-0 ${
           showNavLink
-            ? " z-20 opacity-90 transform translate-x-0 w-[20rem]"
+            ? " z-60 opacity-90 transform translate-x-0 w-[20rem]"
             : ""
         }`}
       >

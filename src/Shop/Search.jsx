@@ -24,7 +24,7 @@ function Search() {
     <>
       {/* ✅ Overlay - always behind search, but on top of page */}
       <div
-        className={`fixed inset-0 bg-black opacity-30 z-40 cursor-pointer ${
+        className={`fixed inset-0 bg-black opacity-30 z-60 cursor-pointer ${
           search ? "block " : "hidden"
         }`}
         onClick={(e) => {
@@ -37,8 +37,8 @@ function Search() {
       <div
         className={`fixed top-0 left-1/2 bg-white w-full h-30 opacity-0  transition-all duration-300 ease-in-out ${
           search
-            ? "z-60 transform -translate-x-1/2 translate-y-0 opacity-100 "
-            : " -z-60 transform -translate-x-1/2 -translate-y-1/2"
+            ? "z-70 transform -translate-x-1/2 translate-y-0 opacity-100 "
+            : " -z-70 transform -translate-x-1/2 -translate-y-1/2"
         }`}
       >
         <form className="flex flex-col justify-center items-center h-full relative">

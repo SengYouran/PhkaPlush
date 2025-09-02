@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dataItems from "../Data/showProduct"; // default export
+import { Link } from "react-router-dom";
 
 function DisplayProduct() {
   const [index, setIndex] = useState(0);
@@ -22,11 +23,11 @@ function DisplayProduct() {
     const relative = (i - index + dataItems.length) % dataItems.length;
     switch (relative) {
       case 0:
-        return "z-30 opacity-100 scale-100 translate-y-0";
+        return "z-30 opacity-100 scale-90 xl:translate-x-15 cursor-pointer";
       case 1:
-        return "z-20 opacity-60 scale-65 translate-x-64 blur-[4px]";
+        return "z-20 opacity-60 scale-60 translate-x-72 blur-[4px]";
       case 2:
-        return "z-10 opacity-30 scale-40 translate-x-104 blur-[6px]";
+        return "z-10 opacity-30 scale-40 translate-x-108 blur-[6px]";
       default:
         0;
         return "opacity-0 translate-y-[500px] scale-60";
@@ -35,11 +36,11 @@ function DisplayProduct() {
 
   return (
     <div
-      className="w-full h-1/2 md:h-[60%] bg-gray-100 mt-8 text-black flex justify-center items-center 
-    relative overflow-hidden"
+      className="w-full h-[50%] md:h-[70%] bg-gray-100 mt-8 text-black flex justify-center items-center 
+    relative overflow-hidden 2xl:hidden"
     >
       {/* Text Section */}
-      <div className=" hidden md:flex flex-col absolute left-10 top-1/2 -translate-y-1/2 w-72">
+      <div className=" hidden xl:flex flex-col absolute left-10 top-1/2 -translate-y-1/2 w-76">
         <h2
           className={`text-4xl font-rowdies ${
             dataItems[index]?.colorText
@@ -56,11 +57,14 @@ function DisplayProduct() {
         >
           {dataItems[index].description}
         </p>
-        <button className="mt-4 text-white text-xl font-medium  bg-pink-500 cursor-pointer py-1 px-4 rounded hover:bg-pink-600">
+        <Link
+          to={`/shop/${dataItems[index]?.id}`}
+          className="mt-4 text-white text-xl text-center font-medium  bg-pink-500 cursor-pointer py-1 px-4 rounded hover:bg-pink-600"
+        >
           Order now
-        </button>
+        </Link>
       </div>
-      <div className="block md:hidden absolute top-0">
+      <div className="block xl:hidden absolute top-0 ">
         <h2
           className={`text-4xl font-rowdies ${
             dataItems[index]?.colorText
@@ -72,13 +76,13 @@ function DisplayProduct() {
         </h2>
       </div>
       {/* Image Layering Section */}
-      <div className="relative flex justify-center items-center mt-4">
+      <div className="relative flex justify-center items-center mt-4 ">
         {dataItems.map((item, i) => (
           <div
             key={i}
             className={`absolute w-[300px] h-[250px] transition-all duration-1000 ease-in-out transform ${getPositionClass(
               i
-            )} flex justify-center items-center`}
+            )} flex justify-center items-center `}
           >
             <img
               src={item.image}

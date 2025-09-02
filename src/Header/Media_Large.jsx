@@ -50,7 +50,7 @@ function Media_Large() {
               key={id}
               onClick={() => setNavActive(id)}
             >
-              <Link to={path}>{label}</Link>
+              <Link className="text-[15px]" to={path}>{label}</Link>
             </li>
           );
         })}
@@ -68,7 +68,7 @@ function Media_Large() {
             <div className="h-6 border-l border-black"></div>
             <span className="w-[25px] cursor-pointer relative">
               <img src={cart_bag} alt="StoreBags" />
-              <p className="absolute top-[55%] left-1/2 transform -translate-1/2 font-bold text-xl text-pink-500">{storeBags}</p>
+              <p className="absolute top-[65%] left-1/2 transform -translate-1/2 font-medium text-xl text-pink-500">{storeBags}</p>
             </span>
             <div className="h-6 border-l border-black"></div>
             <span className="text-2xl cursor-pointer">

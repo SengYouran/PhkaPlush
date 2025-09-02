@@ -78,12 +78,12 @@ function Banner() {
   return (
     <>
       <div
-        className="conrainer-scroll flex overflow-x-auto w-full h-[40vh] md:h-full scroll-smooth scroll-snap-x scroll-snap-mandatory"
+        className="conrainer-scroll flex overflow-x-auto w-full h-[40vh] md:h-full scroll-smooth "
         ref={refContainer_scroll}
         onScroll={handleScroll}
       >
         {extendedBanner.map((src, i) => (
-          <span className="flex-[0_0_100%] h-full" key={i}>
+          <span className=" w-full h-full customer_scroll" key={i}>
             <img src={src} alt={`Banner Of ${i}`} className="w-full h-full" />
           </span>
         ))}

@@ -26,7 +26,7 @@ function RootLayout() {
       <Search />
 
       {/* ✅ Main content */}
-      <main className="pt-18 mx-4 md:mx-32 ">
+      <main className="pt-18 mx-4 md:mx-36 ">
         <Outlet />
       </main>
     </div>
