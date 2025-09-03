@@ -51,7 +51,7 @@ function ShopProduct() {
                   Details
                 </Link>
                 <span className="bg-pink-200 hover:bg-pink-300 cursor-pointer py-1 px-2 rounded flex items-center gap-1.5">
-                  <img className="w-4" src={cart_white} alt="cart logo" />
+                  <img className="w-4 animation" src={cart_white} alt="cart logo" />
                   <button className="text-gray-700 cursor-pointer">
                     Add to Bag
                   </button>
