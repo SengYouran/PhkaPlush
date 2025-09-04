@@ -14,7 +14,7 @@ import PhkaKolab_4 from "../assets/RelatePro/Kolab-4.jpeg";
 import Chouk_1 from "../assets/RelatePro/Chouk-1.jpeg";
 import Chouk_2 from "../assets/RelatePro/Chouk-2.jpeg";
 import Chouk_3 from "../assets/RelatePro/Chouk-3.png";
-import Chouk_4 from "../assets/RelatePro/Chouk_4.jpg";
+import Chouk_4 from "../assets/RelatePro/Chouk-4.jpg";
 import Nokoreach_1 from "../assets/RelatePro/Nokoreach-1.jpeg";
 import Nokoreach_2 from "../assets/RelatePro/Nokoreach-2.jpeg";
 import Nokoreach_3 from "../assets/RelatePro/Nokoreach-3.jpg";
