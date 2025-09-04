@@ -5,11 +5,13 @@ import Mobile from "../Header/Mobile";
 import BothForm from "../LoginRegisterPanel/BothForm";
 import { useControlData } from "../Context";
 import Search from "../Shop/Search";
+import Scroll from "../Scroll";
 function RootLayout() {
   const { showLogin, setShowLogin } = useControlData();
 
   return (
     <div className="font-popins">
+      <Scroll />
       <Media_Large />
       <Mobile />
       <BothForm />

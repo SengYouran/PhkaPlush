@@ -87,7 +87,7 @@ function DisplayProduct() {
             <img
               src={item.image}
               alt={item.name}
-              className="w-full h-full object-cover rounded-lg shadow-lg "
+              className="w-full h-full  rounded-lg shadow-lg "
             />
           </div>
         ))}

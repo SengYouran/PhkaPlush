@@ -17,8 +17,11 @@ body {
 .conrainer-scroll::-webkit-scrollbar {
   display: none;
 }
-.customer_scroll{
+.customer_scroll {
   flex-shrink: 0;
+  scroll-snap-align: start;
+}
+.scroll_middle{
   scroll-snap-align: start;
 }
 .container_bothFrom::-webkit-scrollbar {
@@ -70,12 +73,12 @@ body {
 /* in your main CSS file or index.css */
 .fade-in {
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(50px);
   transition: all 0.6s ease-out;
 }
-.fade-left{
+.fade-left {
   opacity: 0;
-  transform: translateX(-100px);
+  transform: translateX(-50px);
   transition: all 0.6s ease-out;
 }
 
