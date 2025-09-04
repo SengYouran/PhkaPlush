@@ -11,11 +11,17 @@ const navLinks = [
   { label: "Context Us", path: "/context_us" },
 ];
 function Mobile() {
-  const { setBgLoginRegister, setShowLogin, setShowRegister, currentAccount, setSearch,} =
-    useControlData();
+  const {
+    setBgLoginRegister,
+    setShowLogin,
+    setShowRegister,
+    currentAccount,
+    setSearch,
+  } = useControlData();
   const [navActive, setNavActive] = useState(0);
   const [showNavLink, setShowNavLink] = useState(false);
   const [storeBags, setStoreBage] = useState(0);
+
   return (
     <>
       <header className="fixed z-60 w-screen flex justify-between item-center px-4 py-3 shadow bg-white shadow-gray-200 md:hidden">
@@ -25,9 +31,9 @@ function Mobile() {
         >
           <i className="fa-solid fa-bars"></i>
         </span>
-        <span>
-          <img src={Logo} alt="" className=" h-6 cursor-pointer" />
-        </span>
+        <Link to={"/"}>
+          <img src={Logo} alt="Logo website" className=" h-6 cursor-pointer" />
+        </Link>
         {currentAccount !== 0 ? (
           <div className="flex items-center gap-3">
             <span
@@ -39,7 +45,9 @@ function Mobile() {
             <div className="h-6 border-l border-black"></div>
             <span className="w-[20px] cursor-pointer relative">
               <img src={cart_bag} alt="StoreBag" />
-              <p className="absolute top-[55%] left-1/2 transform -translate-1/2 font-bold text-sm text-pink-500">{storeBags}</p>
+              <p className="absolute top-[55%] left-1/2 transform -translate-1/2 font-bold text-sm text-pink-500">
+                {storeBags}
+              </p>
             </span>
             <div className="h-6 border-l border-black"></div>
             <span className="text-xl cursor-pointer">
