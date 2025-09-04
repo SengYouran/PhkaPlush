@@ -14,7 +14,7 @@ import PhkaKolab_4 from "../assets/RelatePro/Kolab-4.jpeg";
 import Chouk_1 from "../assets/RelatePro/Chouk-1.jpeg";
 import Chouk_2 from "../assets/RelatePro/Chouk-2.jpeg";
 import Chouk_3 from "../assets/RelatePro/Chouk-3.png";
-import Chouk_4 from "../assets/RelatePro/Chouk-4.jpg";
+import Chouk_4 from "../assets/RelatePro/chouk-4.jpg";
 import Nokoreach_1 from "../assets/RelatePro/Nokoreach-1.jpeg";
 import Nokoreach_2 from "../assets/RelatePro/Nokoreach-2.jpeg";
 import Nokoreach_3 from "../assets/RelatePro/Nokoreach-3.jpg";
@@ -236,7 +236,7 @@ const data_product = [
       "តូច ងាយយកតាមខ្លួនុះ",
     ],
     text_befenit: "Befenit",
-    text_feedback:"Praises",
+    text_feedback: "Praises",
     text_how_use: "How Yo Use",
     befenit: Befenit,
     how_use: Bikini_how_to_use,
@@ -266,7 +266,7 @@ const data_product = [
     ],
     text_befenit: "New Design",
     text_how_use: "How Yo Use",
-    text_feedback:"Feedback",
+    text_feedback: "Feedback",
     befenit: Armpit_new_design,
     how_use: Armpit_how_to_use,
     how_keep: Armpit_how_to_keep,
