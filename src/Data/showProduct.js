@@ -12,6 +12,7 @@ const dataItems = [
     image: Kolab,
     name: "Phka Kolab",
     colorText: "text-red-500",
+    bgColor: "bg-red-600",
     description: "Phka Blush Pich Pisey 3‑in‑1 Cream Blush Lip Eyeshadow",
   },
   {
@@ -19,6 +20,7 @@ const dataItems = [
     image: Chouk,
     name: "Phka Chouk",
     colorText: "text-pink-500",
+    bgColor: "bg-pink-600",
     description: "Phka Blush Pich Pisey 3‑in‑1 Cream Blush Lip Eyeshadow",
   },
   {
@@ -26,6 +28,7 @@ const dataItems = [
     image: Nokoreach,
     name: "Phka Nokoreach",
     colorText: "text-pink-300",
+    bgColor: "bg-pink-300",
     description: "Phka Blush Pich Pisey 3‑in‑1 Cream Blush Lip Eyeshadow",
   },
   {
@@ -33,6 +36,7 @@ const dataItems = [
     image: Angkeadey,
     name: "Phka Angkeadey",
     colorText: "text-red-800",
+    bgColor: "bg-red-800",
     description: "Phka Blush Pich Pisey 3‑in‑1 Cream Blush Lip Eyeshadow",
   },
   {
@@ -40,6 +44,7 @@ const dataItems = [
     image: Phka_Toek_dos,
     name: "Phka Toek Dos",
     colorText: "text-amber-800 ",
+    bgColor: "bg-amber-800",
     description: "Phka Blush Pich Pisey 3‑in‑1 Cream Blush Lip Eyeshadow",
   },
   {
@@ -47,12 +52,14 @@ const dataItems = [
     image: Phkorlorn,
     name: "Phka Phkorlorn",
     colorText: "text-orange-500 ",
+    bgColor: "bg-orange-600",
     description: "Phka Blush Pich Pisey 3‑in‑1 Cream Blush Lip Eyeshadow",
   },
   {
     id: 7,
     image: Romdoul,
     name: "Phka Romdoul",
+    bgColor: "bg-yellow-500",
     colorText: "text-yellow-500 ",
     description: "Phka Blush Pich Pisey 3‑in‑1 Cream Blush Lip Eyeshadow",
   },

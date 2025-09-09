@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/logo/beauty body.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useControlData } from "../Context";
 import cart_bag from "../assets/logo/shopping bag.png";
 const navLinks = [
@@ -21,7 +21,18 @@ function Mobile() {
   const [navActive, setNavActive] = useState(0);
   const [showNavLink, setShowNavLink] = useState(false);
   const [storeBags, setStoreBage] = useState(0);
-
+  const location = useLocation();
+  useEffect(() => {
+    const locationPath = navLinks.find(({ path }) => {
+      if (path === "/") {
+        return location.pathname === "/";
+      }
+      return location.pathname.startsWith(path);
+    });
+    if (locationPath) {
+      setNavActive(locationPath.id);
+    }
+  }, [location.pathname, navLinks]);
   return (
     <>
       <header className="fixed z-60 w-screen flex justify-between item-center px-4 py-3 shadow bg-white shadow-gray-200 md:hidden">

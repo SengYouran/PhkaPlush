@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 function Error() {
   return (
-    <section className="page_404">
-      <div className="container">
+    <section className="min-h-screen">
+      <div className="flex flex-col justify-cnter">
         <div className="row">
           <div className="col-sm-12 ">
             <div className="col-sm-10 col-sm-offset-1 text-center">

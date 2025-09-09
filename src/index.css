@@ -21,7 +21,7 @@ body {
   flex-shrink: 0;
   scroll-snap-align: start;
 }
-.scroll_middle{
+.scroll_middle {
   scroll-snap-align: start;
 }
 .container_bothFrom::-webkit-scrollbar {
@@ -37,19 +37,33 @@ body {
   background-color: rgb(236, 72, 153);
   animation: fillprogress 5s linear forwards;
 }
-.list_provinces::-webkit-scrollbar {
+.list_provinces::-webkit-scrollbar,
+.custom-scrollY::-webkit-scrollbar {
   width: 3px;
 }
-.list_provinces::-webkit-scrollbar-track {
+.list_provinces::-webkit-scrollbar-track,
+.custom-scrollY::-webkit-scrollbar-track {
   background-color: white;
   border-radius: 5px;
 }
-.list_provinces::-webkit-scrollbar-thumb {
-  background-color: #e91e63;
+.list_provinces::-webkit-scrollbar-thumb,
+.custom-scrollY::-webkit-scrollbar-thumb {
+  background-color: pink;
   border-radius: 5px;
 }
 .search::-webkit-search-cancel-button {
   display: none;
+}
+.custom-scroll-counter::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scroll-counter::-webkit-scrollbar-thumb {
+  background-color: rgb(236, 72, 153);
+  border-radius: 5px;
+}
+.custom-scroll-counter::-webkit-scrollbar-track {
+  background-color: white;
+  border-radius: 5px;
 }
 @keyframes fillprogress {
   0% {

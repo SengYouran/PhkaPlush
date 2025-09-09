@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { LoginRegisterPanel } from "./Custom_hook/useFormLogin";
+import { StoreProduct } from "./Custom_hook/useStoreProduct";
 
 // Step 1: Create context
 const ControlDataContext = createContext();
@@ -10,6 +11,7 @@ const useControlData = () => useContext(ControlDataContext);
 // Step 3: Context provider
 function ContextProvider({ children }) {
   const [bgLoginRegister, setBgLoginRegister] = useState(false);
+  const [bgCart, setBgCart] = useState(false);
   const [search, setSearch] = useState(false);
   const [valueSearch, setValueSearch] = useState("");
   const [userAccount, setUserAccount] = useState(() => {
@@ -57,7 +59,24 @@ function ContextProvider({ children }) {
     selectProvince,
     setSelectProvince,
   } = LoginRegisterPanel();
-
+  const {
+    handleCounterDash,
+    handleCounterPlus,
+    handleCart,
+    showCart,
+    setShowCart,
+    handleDeleteItem,
+  } = StoreProduct({
+    setCounters,
+    counters,
+    currentAccount,
+    setShowLogin,
+    showRegister,
+    setShowRegister,
+    setBgLoginRegister,
+    userAccount,
+    setUserAccount,
+  });
   return (
     <ControlDataContext.Provider
       value={{
@@ -82,6 +101,16 @@ function ContextProvider({ children }) {
         setSearch,
         valueSearch,
         setValueSearch,
+        counters,
+        setCounters,
+        handleCounterDash,
+        handleCounterPlus,
+        handleCart,
+        bgCart,
+        setBgCart,
+        showCart,
+        setShowCart,
+        handleDeleteItem
       }}
     >
       {children}

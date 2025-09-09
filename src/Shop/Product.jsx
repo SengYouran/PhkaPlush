@@ -20,7 +20,7 @@ function Product() {
 
             <Link
               to={`/shop/${render?.id}`}
-              className="flex justify-center items-center transition-transform duration-300 transform group-hover:scale-110"
+              className="flex justify-center items-center transition-transform duration-600 transform group-hover:scale-110"
             >
               <img
                 className="w-[230px] h-[180px]  cursor-pointer"

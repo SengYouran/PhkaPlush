@@ -5,13 +5,22 @@ import cart_white from "../assets/logo/cart-white.png";
 import RelateProduct from "./RelateProduct";
 
 import Similar from "./Similar";
+import { useControlData } from "../Context";
+import CheckBag from "./CheckBag";
 function Order_Product() {
   const { id } = useParams();
   const [products, setProduct] = useState([]);
   const [bg_smallImg, setBg_SmallImg] = useState(0);
   const [KHR, setKHR] = useState(null);
   const scrollRef = useRef(null);
-
+  
+  const {
+    handleCounterDash,
+    handleCounterPlus,
+    counters,
+    handleCart,
+    setShowRegister,setBgCart
+  } = useControlData();
   const images = [
     products?.relate1,
     products?.relate2,
@@ -153,13 +162,28 @@ function Order_Product() {
             </h2>
           </span>
           <span className="flex items-center gap-4">
-            <i className={`fa-solid fa-minus cursor-pointer`}></i>
-            <p className="border text-center py-1 w-[4rem] rounded-2xl">0</p>
-            <i className="fa-solid fa-plus cursor-pointer"></i>
+            <i
+              className={`fa-solid fa-minus cursor-pointer`}
+              onClick={() => handleCounterDash(id)}
+            ></i>
+            <p className="border text-center py-1 w-[4rem] rounded-2xl">
+              {counters?.[id] || 0}
+            </p>
+            <i
+              className="fa-solid fa-plus cursor-pointer"
+              onClick={() => handleCounterPlus(id)}
+            ></i>
           </span>
           <span className="w-[10rem] bg-pink-400 hover:bg-pink-500 cursor-pointer py-1 px-2 rounded flex justify-center items-center gap-1.5">
             <img className="w-4 animation" src={cart_white} alt="cart logo" />
-            <button className="cursor-pointer text-white">Add to Bag</button>
+            <button
+              className="cursor-pointer text-white"
+              onClick={() => {
+                handleCart(id), setShowRegister(true), setBgCart(true);
+              }}
+            >
+              Add to Bag
+            </button>
           </span>
           <div className="border border-pink-500"></div>
           <span className="text-black text-[13px] md:text-[15px] font-medium">
@@ -168,6 +192,7 @@ function Order_Product() {
         </div>
       </div>
       {products?.text_befenit ? <RelateProduct products={products} /> : null}
+      <CheckBag products={products} />
       <Similar id={id} />
     </>
   );

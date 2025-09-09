@@ -36,7 +36,7 @@ function DisplayProduct() {
 
   return (
     <div
-      className="w-full h-[50%] md:h-[70%] bg-gray-100 mt-8 text-black flex justify-center items-center 
+      className="w-full h-[50%] md:h-[70%] p-4 bg-white mt-8 text-black flex justify-center items-center 
     relative overflow-hidden 2xl:hidden"
     >
       {/* Text Section */}
@@ -59,26 +59,37 @@ function DisplayProduct() {
         </p>
         <Link
           to={`/shop/${dataItems[index]?.id}`}
-          className="mt-4 text-white text-xl text-center font-medium  bg-pink-500 cursor-pointer py-1 px-4 rounded hover:bg-pink-600"
+          className={`mt-4 text-white text-xl text-center font-medium  ${dataItems[index]?.bgColor} cursor-pointer py-1 px-4 rounded`}
         >
           Order now
         </Link>
       </div>
-      <div className="block xl:hidden absolute top-0 ">
-        <h2
-          className={`text-4xl font-rowdies ${
-            dataItems[index]?.colorText
-          } font-bold mb-2 transition-opacity duration-1000 ${
-            showText ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          {dataItems[index].name}
-        </h2>
+      <div className="flex items-center gap-8 xl:hidden absolute top-0 ">
+        <span className="mt-2">
+          {" "}
+          <h2
+            className={`text-xl font-rowdies ${
+              dataItems[index]?.colorText
+            } font-bold mb-2 transition-opacity duration-1000 ${
+              showText ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {dataItems[index].name}
+          </h2>
+        </span>
+        <span>
+          <Link
+            to={`/shop/${dataItems[index]?.id}`}
+            className={`text-white text-sm text-center font-medium  ${dataItems[index]?.bgColor} cursor-pointer py-1 px-4 rounded`}
+          >
+            Order now
+          </Link>
+        </span>
       </div>
       {/* Image Layering Section */}
       <div className="relative flex justify-center items-center mt-4 ">
         {dataItems.map((item, i) => (
-          <div
+          <Link 
             key={i}
             className={`absolute w-[300px] h-[250px] transition-all duration-1000 ease-in-out transform ${getPositionClass(
               i
@@ -89,7 +100,7 @@ function DisplayProduct() {
               alt={item.name}
               className="w-full h-full  rounded-lg shadow-lg "
             />
-          </div>
+          </Link>
         ))}
       </div>
     </div>

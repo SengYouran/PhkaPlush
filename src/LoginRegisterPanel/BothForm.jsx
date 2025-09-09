@@ -14,8 +14,8 @@ function BothForm() {
   } = useControlData();
   return (
     <div
-      className={`transition-all duration-400 ease-in-out  relative -z-50 opacity-0 ${
-        showLogin ? "z-50 opacity-100 " : ""
+      className={`transition-all duration-400 ease-in-out relative -z-50 opacity-0 ${
+        showLogin ? "z-70 opacity-100 " : ""
       }`}
     >
       <div
@@ -26,7 +26,7 @@ function BothForm() {
       </div>
       <div
         className={`container_bothFrom fixed w-[400px] h-[100vh] -z-30 bg-white top-1/2 left-1/2 transform -translate-1/2 overflow-y-auto px-8 
-          ${showRegister ? " z-40" : ""}`}
+          ${showRegister ? " z-75" : ""}`}
       >
         <div className="float-right mx-4 mt-2">
           <i
@@ -64,7 +64,7 @@ function BothForm() {
         </span>
       </div>
       <div
-        className={`bg-gray-200 fixed inset-0 opacity-70 z-15 ${
+        className={`bg-gray-200 fixed inset-0 opacity-70 z-70 ${
           bgLoginRegister ? "block" : "hidden"
         }`}
         onClick={() => {

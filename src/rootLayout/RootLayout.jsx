@@ -6,19 +6,31 @@ import BothForm from "../LoginRegisterPanel/BothForm";
 import { useControlData } from "../Context";
 import Search from "../Shop/Search";
 import Scroll from "../Scroll";
+import Footer from "../Page/Footer";
+import Cart from "../Shop/Cart";
 function RootLayout() {
-  const { showLogin, setShowLogin } = useControlData();
+  const { showLogin, setShowLogin, bgCart, setBgCart, setShowCart } =
+    useControlData();
 
   return (
-    <div className="font-popins">
+    <div className="font-popins min-h-screen flex flex-col">
       <Scroll />
       <Media_Large />
       <Mobile />
       <BothForm />
-
+      <div
+        className={`bg-gray-100 fixed inset-0  ${
+          bgCart ? "z-70 opacity-70" : "-z-100 opacity-0"
+        }`}
+        onClick={() => {
+          setBgCart(false);
+          setShowCart(false);
+        }}
+      ></div>
+      <Cart />
       {/* ✅ Login Overlay */}
       <div
-        className={`bg-gray-200 fixed inset-0 z-[70] opacity-70 ${
+        className={`bg-gray-200 fixed inset-0 z-60 opacity-70 ${
           showLogin ? "block" : "hidden"
         }`}
         onClick={() => setShowLogin(false)}
