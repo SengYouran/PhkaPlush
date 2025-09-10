@@ -7,7 +7,7 @@ import Feeds from "./Feeds";
 import Footer from "../Page/Footer";
 function ControlHome() {
   return (
-    <div className="h-screen mt-6">
+    <div className="h-screen md:mt-6">
       <Banner />
       <DisplayProduct />
       <WhyUs />

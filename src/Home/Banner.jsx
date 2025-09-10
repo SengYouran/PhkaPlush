@@ -78,7 +78,7 @@ function Banner() {
   return (
     <>
       <div
-        className="conrainer-scroll flex overflow-x-auto w-full h-[40vh] md:h-full scroll-smooth "
+        className="conrainer-scroll flex overflow-x-auto w-screen -ml-4.5 md:ml-0 md:w-full h-[40vh] md:h-full scroll-smooth "
         ref={refContainer_scroll}
         onScroll={handleScroll}
       >

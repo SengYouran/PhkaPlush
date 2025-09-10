@@ -19,7 +19,7 @@ function BothForm() {
       }`}
     >
       <div
-        className="container_bothFrom fixed bg-white w-[500px] h-[100vh] top-1/2 left-1/2 transform -translate-1/2 overflow-y-auto
+        className="container_bothFrom fixed bg-white w-[400px] md:w-[500px] h-[100vh] top-1/2 left-1/2 transform -translate-1/2 overflow-y-auto
      rounded-sm z-10"
       >
         <ChildForm />

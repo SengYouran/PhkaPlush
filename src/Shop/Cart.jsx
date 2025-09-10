@@ -49,7 +49,6 @@ function Cart() {
     const deliveryFee = totalPrice >= 50 ? 0 : delivery;
 
     const amountPayment = priceAfterDiscount + deliveryFee;
-    console.log(totalDiscountAmount);
 
     const khmerMoneyRaw = Math.round(amountPayment * 4000);
     const KHR = new Intl.NumberFormat("km-KH").format(khmerMoneyRaw) + "៛";
@@ -153,7 +152,7 @@ function Cart() {
         </div>
       ) : (
         <React.Fragment>
-          <div className="mt-4 ml-4 overflow-y-auto mx-h-[16rem] md:max-h-[14rem] custom-scrollY px-2">
+          <div className="mt-4 ml-4 overflow-y-auto max-h-[17rem] md:max-h-[14rem] custom-scrollY px-2">
             {data.map((render) => {
               const {
                 id,
