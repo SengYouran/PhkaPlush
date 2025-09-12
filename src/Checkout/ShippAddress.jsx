@@ -68,7 +68,7 @@ function ShippAddress() {
         ></div>
         {currently == undefined ? (
           <div
-            className={`fixed top-1/2 left-1/2 -translate-1/2 bg-white py-8 px-12 flex flex-col justify-center items-center gap-2
+            className={`fixed top-1/2 w-full md:w-[25rem] rounded left-1/2 -translate-1/2 bg-white py-8 px-12 flex flex-col justify-center items-center gap-2
                ${
                  formAddress
                    ? "transform scale-0 opacity-0 -z-80"
@@ -134,7 +134,7 @@ function ShippAddress() {
           </div>
         )}
         <div className="border border-gray-200"></div>
-        <div className="flex justify-between items-center ">
+        <div className="flex justify-between items-center">
           {selectedDelivery && (
             <div className="flex items-center gap-1">
               <div className="w-10 h-10 rounded-[50%]">
@@ -160,7 +160,7 @@ function ShippAddress() {
         </div>
       </div>
       <div
-        className={`absolute top-0 right-0 bg-white min-h-full md:w-[35rem] flex flex-col gap-6 py-8 px-4 transition-all duration-500 ease-in-out
+        className={`absolute top-0 right-0 bg-white w-full min-h-full md:w-[35rem] flex flex-col gap-6 py-8 px-4 transition-all duration-500 ease-in-out
         ${
           bgForm1
             ? "transform translate-x-0 z-80 opacity-100"
@@ -239,7 +239,7 @@ function ShippAddress() {
         onClick={() => setBgForm2(false)}
       ></div>
       <form
-        className={`fixed top-1/2 left-1/2 -translate-1/2 bg-white h-full transition-all duration-500 ease-in-out
+        className={`fixed top-1/2 left-1/2 -translate-1/2 bg-white w-full md:w-auto h-full transition-all duration-500 ease-in-out
          ${
            bgForm2
              ? "transform scale-100 opacity-100 z-90"
@@ -381,12 +381,21 @@ function ShippAddress() {
         }`}
         onClick={() => setBgDelivery(false)}
       ></div>
-      <Delivery
-        bgDelivery={bgDelivery}
-        setBgDelivery={setBgDelivery}
-        currently={currently}
-        selectedDelivery={selectedDelivery}
-      />
+      <div
+        className={`bg-white fixed top-0 right-0 h-full w-full md:w-[35rem] flex flex-col gap-6 py-8 px-4 transition-all duration-500 ease-in-out
+    ${
+      bgDelivery
+        ? "transform  z-80 opacity-100"
+        : "-z-80 opacity-0 "
+    }`}
+      >
+        <Delivery
+          bgDelivery={bgDelivery}
+          setBgDelivery={setBgDelivery}
+          currently={currently}
+          selectedDelivery={selectedDelivery}
+        />
+      </div>
     </section>
   );
 }

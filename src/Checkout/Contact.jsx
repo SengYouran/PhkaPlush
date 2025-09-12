@@ -32,10 +32,10 @@ function Contact() {
   }, [userAccount]);
   return (
     <div className="bg-white mt-4 py-8 px-3 rounded">
-      <div className=" flex items-center gap-4">
+      <div className=" flex items-center gap-2">
         {contacts.map((render) => (
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center cursor-pointer gap-1"
             key={render?.id}
             onClick={() => handleContact(render)}
           >
@@ -49,9 +49,9 @@ function Contact() {
                 onChange={() => handleContact(render)}
               />
             </label>
-            <span className="flex items-center gap-2 border border-gray-300 py-1 px-2 rounded">
-              <i className={`${render?.icon} text-sm`}></i>
-              <h2 className="text-sm">{render?.via}</h2>
+            <span className="flex items-center gap-1 border border-gray-300 py-1 px-1 rounded">
+              <i className={`${render?.icon} text-xs`}></i>
+              <h2 className="text-xs">{render?.via}</h2>
             </span>
           </div>
         ))}

@@ -33,7 +33,7 @@ function Gift_Point() {
         </form>
       </div>
       <div
-        className={`fixed h-full bg-gray-100 w-full md:w-[35rem] top-0 right-0 px-4 transition-all duration-500 ease-in-out${
+        className={`fixed bg-gray-100 w-full md:w-[35rem] h-full top-0 right-0 px-4 transition-all duration-500 ease-in-out ${
           bgvocher
             ? "transform translate-x-0 z-80 opacity-100"
             : "translate-x-50 -z-80 opacity-0"
@@ -46,7 +46,7 @@ function Gift_Point() {
           ></i>
           <h2 className="text-sm">Select a voucher</h2>
         </div>
-        <div className="border border-gray-200 opacity-70 mt-8"></div>
+        <div className="border w-full border-gray-200 opacity-70 mt-8"></div>
         <h2 className="text-center text-[15px] mt-12">
           You have no gift card yet.
         </h2>

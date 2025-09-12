@@ -30,14 +30,7 @@ function Delivery({ bgDelivery, setBgDelivery, currently, selectedDelivery }) {
   const { handleDelivery } = useControlData();
   const [selected, setSelected] = useState(null);
   return (
-    <div
-      className={`bg-white fixed top-0 right-0 min-h-full md:w-[35rem] flex flex-col gap-6 py-8 px-4 transition-all duration-500 ease-in-out
-    ${
-      bgDelivery
-        ? "transform translate-x-0 z-80 opacity-100"
-        : "-z-80 opacity-0 translate-x-20"
-    }`}
-    >
+  <>
       <div className="flex justify-center items-center relative">
         <i
           className="fa-solid fa-less-than absolute left-2 top-1/2 -translate-1/2 cursor-pointer"
@@ -101,7 +94,7 @@ function Delivery({ bgDelivery, setBgDelivery, currently, selectedDelivery }) {
           Apply
         </button>
       </div>
-    </div>
+    </>
   );
 }
 
