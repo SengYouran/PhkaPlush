@@ -55,6 +55,7 @@ function ShippAddress() {
     setCurrently(shippingAddress);
     setSelectedDelivery(shippingDelivery);
   }, [userAccount]);
+
   return (
     <section>
       <div className="flex flex-col gap-6 bg-white py-10 px-2 mt-2 rounded">
@@ -160,11 +161,11 @@ function ShippAddress() {
         </div>
       </div>
       <div
-        className={`absolute top-0 right-0 bg-white w-full min-h-full md:w-[35rem] flex flex-col gap-6 py-8 px-4 transition-all duration-500 ease-in-out
+        className={`fixed top-0 right-0 bg-white  h-full flex flex-col gap-6 py-8 px-4 transition-all duration-500 ease-in-out
         ${
           bgForm1
-            ? "transform translate-x-0 z-80 opacity-100"
-            : "-z-80 opacity-0 translate-x-20"
+            ? "z-80 opacity-100 w-full md:w-[35rem] "
+            : "-z-80 opacity-0 w-10"
         }`}
       >
         <div className="flex justify-center items-center relative">
@@ -382,12 +383,8 @@ function ShippAddress() {
         onClick={() => setBgDelivery(false)}
       ></div>
       <div
-        className={`bg-white fixed top-0 right-0 h-full w-full md:w-[35rem] flex flex-col gap-6 py-8 px-4 transition-all duration-500 ease-in-out
-    ${
-      bgDelivery
-        ? "transform  z-80 opacity-100"
-        : "-z-80 opacity-0 "
-    }`}
+        className={`bg-white fixed top-0 right-0 h-full flex flex-col gap-6 py-8 px-4 transition-all duration-500 ease-in-out
+    ${bgDelivery ? "w-full md:w-[35rem] z-80 opacity-100" : "-z-80 opacity-0 w-10"}`}
       >
         <Delivery
           bgDelivery={bgDelivery}

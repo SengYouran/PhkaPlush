@@ -33,10 +33,8 @@ function Gift_Point() {
         </form>
       </div>
       <div
-        className={`fixed bg-gray-100 w-full md:w-[35rem] h-full top-0 right-0 px-4 transition-all duration-500 ease-in-out ${
-          bgvocher
-            ? "transform translate-x-0 z-80 opacity-100"
-            : "translate-x-50 -z-80 opacity-0"
+        className={`fixed bg-gray-100 h-full top-0 right-0 px-4 transition-all duration-500 ease-in-out ${
+          bgvocher ? "z-80 opacity-100 w-full md:w-[35rem] " : " -z-80 opacity-0 w-10"
         }`}
       >
         <div className=" mt-8 flex justify-center items-center ">

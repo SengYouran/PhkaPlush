@@ -245,7 +245,7 @@ function Cart() {
                         ></div>
                       </div>
                     </div>
-                    <div className="flex flex-col gap-2 absolute top-30 right-0">
+                    <div className="flex flex-col gap-2 absolute top-20 md:top-30 right-0">
                       {discountRat != 0 ? (
                         <>
                           <h2 className="text-sm">
@@ -257,14 +257,14 @@ function Cart() {
                             >
                               ${totalPrice.toFixed(2)}
                             </span>
-                            <p>
+                            <p className="text-sm">
                               USD{" "}
                               <span className="text-pink-600 ">
                                 ${afterDis.toFixed(2)}
                               </span>
                             </p>
                           </h2>
-                          <h2 className="text-sm">
+                          <h2 className="text-sm -mt-1">
                             KHR <span className="text-pink-600">{KHRDis}</span>
                           </h2>
                         </>
@@ -317,13 +317,13 @@ function Cart() {
           </div>
           <Link
             to={"/checkout"}
-            className="mt-4 mx-1.5"
+            className="mt-4 ml-5"
             onClick={() => {
               setBgCart(false);
               setShowCart(false);
             }}
           >
-            <button className="bg-black text-white text-[17px] w-full py-2 rounded cursor-pointer hover:bg-gray-700">
+            <button className="bg-black text-white text-[17px] w-[95%] py-2 rounded cursor-pointer hover:bg-gray-800">
               Proceed to checkout
             </button>
           </Link>
