@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { LoginRegisterPanel } from "./Custom_hook/useFormLogin";
 import { StoreProduct } from "./Custom_hook/useStoreProduct";
+import { CheckoutProceed } from "./Custom_hook/useCheckout";
 
 // Step 1: Create context
 const ControlDataContext = createContext();
@@ -77,6 +78,19 @@ function ContextProvider({ children }) {
     userAccount,
     setUserAccount,
   });
+  const {
+    deliveryAdd,
+    setDeliveryAdd,
+    handleSaveAddress,
+    deliveryAddressProvince,
+    handleDelivery,
+    handleBanks,
+    handleContact,
+  } = CheckoutProceed({
+    currentAccount,
+    setUserAccount,
+    userAccount,
+  });
   return (
     <ControlDataContext.Provider
       value={{
@@ -110,7 +124,14 @@ function ContextProvider({ children }) {
         setBgCart,
         showCart,
         setShowCart,
-        handleDeleteItem
+        handleDeleteItem,
+        deliveryAdd,
+        setDeliveryAdd,
+        handleSaveAddress,
+        deliveryAddressProvince,
+        handleDelivery,
+        handleBanks,
+        handleContact,
       }}
     >
       {children}

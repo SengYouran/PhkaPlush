@@ -118,9 +118,9 @@ function Media_Large() {
                 </p>
               </span>
               <div className="h-6 border-l border-black"></div>
-              <span className="text-2xl cursor-pointer">
+              <Link to={"/account"} className="text-2xl cursor-pointer">
                 <i className="fa-solid fa-face-smile text-pink-500"></i>
-              </span>
+              </Link>
             </div>
           ) : (
             <ul className=" flex items-center gap-4">

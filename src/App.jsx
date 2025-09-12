@@ -6,6 +6,9 @@ import Error from "./Error/Error";
 import "./App.css";
 import RootLayout from "./rootLayout/RootLayout";
 import Shop from "./rootLayout/Shop";
+import Checkout from "./Checkout/Checkout";
+import Account from "./Account/Account";
+import ControllAccount from "./Account/ControllAccount";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: "shop",
         element: <Shop />,
+        errorElement: <Error />,
         children: [
           {
             index: true,
@@ -42,6 +46,21 @@ const router = createBrowserRouter([
       {
         path: "context_us",
         element: <Context_us />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "account",
+        element: <Account />,
+        errorElement: <Error />,
+        children: [
+          {
+            index: true,
+            element: <ControllAccount />,
+          },
+        ],
       },
     ],
   },

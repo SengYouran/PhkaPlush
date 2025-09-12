@@ -315,11 +315,18 @@ function Cart() {
               </span>
             </div>
           </div>
-          <div className="mt-4 mx-1.5">
+          <Link
+            to={"/checkout"}
+            className="mt-4 mx-1.5"
+            onClick={() => {
+              setBgCart(false);
+              setShowCart(false);
+            }}
+          >
             <button className="bg-black text-white text-[17px] w-full py-2 rounded cursor-pointer hover:bg-gray-700">
               Proceed to checkout
             </button>
-          </div>
+          </Link>
         </React.Fragment>
       )}
     </div>
