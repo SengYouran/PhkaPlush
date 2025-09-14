@@ -18,8 +18,8 @@ function ShopProduct() {
             className="fade-in bg-white overflow-hidden rounded-sm p-2 flex flex-col gap-1 group transition-all duration-800 ease-in-out"
           >
             <span
-              className={` text-center text-white opacity-90 py-1 px-2 absolute z-10 ${
-                render?.discount != null ? "bg-red-500 w-12" : ""
+              className={` text-center text-white opacity-90 p-0.5 absolute z-10 ${
+                render?.discount != null ? "bg-red-500 w-10" : ""
               }`}
             >
               {render?.discount}
