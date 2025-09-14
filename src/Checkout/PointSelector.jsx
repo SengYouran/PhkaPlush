@@ -35,7 +35,7 @@ export default function PointSelector({ usePoint, setUsePoint }) {
         <h2 className="text-2xl font-bold text-pink-600">
           5 points ≈ US $0.75
         </h2>
-        <p className="text-[16px]">
+        <p className="text-[16px] text-center">
           AVAILABLE POINTS / EXCHANGE FOR CASH VOUCHER
         </p>
       </div>
@@ -81,7 +81,7 @@ export default function PointSelector({ usePoint, setUsePoint }) {
           </h2>
         </div>
       </div>
-      <button className="bg-black text-center text-white text-[15px] cursor-pointer font-bold w-[95%] absolute bottom-5 left-4 py-2">
+      <button className="bg-black text-center text-white text-[15px] cursor-pointer font-bold w-[96%] rounded absolute bottom-5 left-0 mx-2 py-2">
         USE POINT
       </button>
 
