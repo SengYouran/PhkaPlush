@@ -318,15 +318,14 @@ function Cart() {
           </div>
           <Link
             to={"/checkout"}
-            className="mt-4 ml-5"
+            className=""
             onClick={() => {
               setBgCart(false);
               setShowCart(false);
             }}
           >
             <button
-              className="bg-black text-white text-[17px] w-[95%] py-2 rounded cursor-pointer hover:bg-gray-800"
-              
+              className="bg-black mt-8 mx-2 text-white text-[17px] text-center w-[96%] py-2 rounded cursor-pointer hover:bg-gray-800"
             >
               Proceed to checkout
             </button>
