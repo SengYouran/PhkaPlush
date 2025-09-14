@@ -6,7 +6,7 @@ import Error from "./Error/Error";
 import "./App.css";
 import RootLayout from "./rootLayout/RootLayout";
 import Shop from "./rootLayout/Shop";
-import Checkout from "./Page/Checkout";
+import Checkout from "./Checkout/Checkout";
 import Account from "./Account/Account";
 import ControllAccount from "./Account/ControllAccount";
 const router = createBrowserRouter([

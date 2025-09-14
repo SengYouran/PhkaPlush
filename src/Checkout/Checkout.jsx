@@ -1,0 +1,50 @@
+import React from "react";
+import ShippAddress from "./ShippAddress";
+import Bags from "./Bags";
+import Bank from "./Bank";
+import Contact from "./Contact";
+import Gift_Point from "./Gift_Point";
+import Comment from "./Comment";
+import Payment from "./Payment";
+import Footer from "../Page/Footer";
+function Checkout() {
+  return (
+    <React.Fragment>
+      <div className="mt-2 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-2">
+          <div className="w-full">
+            <h2 className="text-xl font-medium">Delivery Address</h2>
+            <ShippAddress />
+          </div>
+          <div className="mt-4">
+            <Bags />
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <div>
+            <h2 className="text-xl font-medium">Payment</h2>
+            <Bank />
+          </div>
+          <div>
+            <h2 className="text-xl font-medium mt-8">Preferred contact line</h2>
+            <Contact />
+          </div>
+          <div className="mt-4">
+            <Gift_Point />
+          </div>
+          <div>
+            <Comment />
+          </div>
+          <div>
+            <Payment />
+          </div>
+        </div>
+      </div>
+      <div className="mt-8">
+        <Footer />
+      </div>
+    </React.Fragment>
+  );
+}
+
+export default Checkout;

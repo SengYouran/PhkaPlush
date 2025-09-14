@@ -4,7 +4,7 @@ import PointSelector from "./PointSelector";
 function Gift_Point() {
   const [bgvocher, setBgVochor] = useState(false);
   const [showCoin, setShowCoin] = useState(false);
-  let number = [1, 2, 3, 4, 5];
+  const [usePoint, setUsePoint] = useState(false);
   return (
     <section>
       <div>
@@ -34,7 +34,9 @@ function Gift_Point() {
       </div>
       <div
         className={`fixed bg-gray-100 h-full top-0 right-0 px-4 transition-all duration-500 ease-in-out ${
-          bgvocher ? "z-80 opacity-100 w-full md:w-[35rem] " : " -z-80 opacity-0 w-10"
+          bgvocher
+            ? "z-80 opacity-100 w-full md:w-[35rem] "
+            : " -z-80 opacity-0 w-10"
         }`}
       >
         <div className=" mt-8 flex justify-center items-center ">
@@ -64,6 +66,10 @@ function Gift_Point() {
           className="flex items-center gap-2 bg-white px-4 py-2 mt-2 rounded cursor-pointer"
           onMouseEnter={() => setShowCoin(true)}
           onMouseLeave={() => setShowCoin(false)}
+          onClick={() => {
+            setUsePoint(true);
+            setShowCoin(false);
+          }}
         >
           <i className="fa-solid fa-coins text-blue-900"></i>
           <div>
@@ -80,9 +86,22 @@ function Gift_Point() {
           </h2>
         </div>
       </div>
-      <div className="bg-white w-1/2 h-[95%] my-2 fixed left-1/2 top-1/2 -translate-1/2 z-80 hidden">
-        <PointSelector />
+      <div
+        className={`bg-white w-full md:w-1/2 h-[95%] my-2 fixed left-1/2 top-1/2 -translate-1/2
+           transition-all duration-500 ease-in-out transform ${
+             usePoint
+               ? " scale-100 opacity-100 z-80"
+               : "-z-80 scale-0 opacity-0"
+           }`}
+      >
+        <PointSelector usePoint={usePoint} setUsePoint={setUsePoint} />
       </div>
+      <div
+        className={` bg-gray-200 fixed inset-0 transition-all duration-500 ease-in-out ${
+          usePoint ? "z-75 opacity-70 " : "-z-75 opacity-0 "
+        }`}
+        onClick={() => setUsePoint(false)}
+      ></div>
     </section>
   );
 }

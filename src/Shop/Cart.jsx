@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 function Cart() {
   const [data, setData] = useState([]);
   const [total, setTotal] = useState(null);
-  const [amoutPayment, setAmountPayment] = useState(null);
+  const [amountPayment, setAmountPayment] = useState(null);
   const [saveMoney, setSaveMoney] = useState(null);
-  const [KHRTotla, setKHRTotal] = useState(null);
+  const [KHRTotal, setKHRTotal] = useState(null);
   const [bgCounter, setBgCounter] = useState(null);
   const {
     showCart,
@@ -18,6 +18,7 @@ function Cart() {
     setUserAccount,
     setCounters,
     handleDeleteItem,
+
   } = useControlData();
   const delivery = 1.25;
   useEffect(() => {
@@ -310,8 +311,8 @@ function Cart() {
             <div className="flex justify-between items-center font-bold">
               <h2 className="text-[18px]">Amount to pay</h2>
               <span>
-                <p className="text-[18px]">${amoutPayment}</p>
-                <p className="text-[18px]">${KHRTotla}</p>
+                <p className="text-[18px]">${amountPayment}</p>
+                <p className="text-[18px]">${KHRTotal}</p>
               </span>
             </div>
           </div>
@@ -323,7 +324,10 @@ function Cart() {
               setShowCart(false);
             }}
           >
-            <button className="bg-black text-white text-[17px] w-[95%] py-2 rounded cursor-pointer hover:bg-gray-800">
+            <button
+              className="bg-black text-white text-[17px] w-[95%] py-2 rounded cursor-pointer hover:bg-gray-800"
+              
+            >
               Proceed to checkout
             </button>
           </Link>
