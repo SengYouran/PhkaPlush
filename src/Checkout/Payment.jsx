@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useControlData } from "../Context";
+import { useNavigate } from "react-router-dom";
 
 function Payment() {
   const [total, setTotal] = useState(null);
   const [amountPayment, setAmountPayment] = useState(null);
   const [saveMoney, setSaveMoney] = useState(null);
   const [KHRTotal, setKHRTotal] = useState(null);
-  const { userAccount, currentAccount } = useControlData();
+  const {
+    userAccount,
+    currentAccount,
+    setPurchased,
+    handleCheckoutClearStoreBags,
+  } = useControlData();
   const delivery = 1.25;
+  const [currentStoreData, setCurrentStoreData] = useState([]);
   useEffect(() => {
     const userIndex = userAccount.find(
       (check) => check.id === currentAccount.id
     );
     const storeBag = userIndex?.storeBags || [];
+    setCurrentStoreData(storeBag);
     let totalPrice = 0;
     let totalDiscountAmount = 0;
 
@@ -44,7 +52,11 @@ function Payment() {
     setAmountPayment(amountPayment.toFixed(2));
     setKHRTotal(KHR);
   }, [userAccount]);
-
+  // Find user object to access banks and contactVia
+  const user = userAccount.find((check) => check.id === currentAccount.id);
+  const banks = user?.banks || null;
+  const contactVia = user?.contactVia || null;
+  const navigate = useNavigate();
   return (
     <div>
       <div className="border border-white h-2 bg-white rounded mt-4"></div>
@@ -71,8 +83,18 @@ function Payment() {
             <p className="text-[18px]">${KHRTotal}</p>
           </span>
         </div>
-      </div> 
-      <button className="text-[17px] text-white font-bold cursor-pointer bg-black py-2 w-full rounded mt-3">
+      </div>
+      <button
+        className="text-[17px] text-white font-bold cursor-pointer bg-black py-2 w-full rounded mt-3"
+        onClick={() => {
+         if (!banks || !contactVia) {
+            alert("Please select payment method and contact method first.");
+            return;
+          }
+          handleCheckoutClearStoreBags();
+          navigate("/");
+        }}
+      >
         Checkout
       </button>
     </div>

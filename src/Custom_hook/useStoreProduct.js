@@ -12,12 +12,12 @@ function StoreProduct({
   setUserAccount,
 }) {
   const [showCart, setShowCart] = useState(false);
+  const [bgCheckBag, setBgCheckBag] = useState(false);
   function handleCart(id) {
-    if (!currentAccount) {
+    if (currentAccount == 0) {
       setShowLogin(true);
       setShowRegister(true);
       setBgLoginRegister(true);
-      return; // ✅ បន្ថែម return នៅទីនេះដែរ
     }
 
     const cartItem = data_product.find((check) => check.id == id);
@@ -110,6 +110,8 @@ function StoreProduct({
     showCart,
     setShowCart,
     handleDeleteItem,
+    bgCheckBag,
+    setBgCheckBag,
   };
 }
 

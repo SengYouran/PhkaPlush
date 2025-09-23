@@ -8,6 +8,7 @@ import Search from "../Shop/Search";
 import Scroll from "../Scroll";
 import Footer from "../Page/Footer";
 import Cart from "../Shop/Cart";
+import PrivacyPolicy from "../AboutCompany/PrivacyPolicy";
 function RootLayout() {
   const { showLogin, setShowLogin, bgCart, setBgCart, setShowCart } =
     useControlData();
@@ -38,7 +39,7 @@ function RootLayout() {
 
       {/* ✅ Search */}
       <Search />
-
+      <PrivacyPolicy />
       {/* ✅ Main content */}
       <main className="pt-18 mx-4 md:mx-36 ">
         <Outlet />

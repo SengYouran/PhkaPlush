@@ -2,6 +2,8 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { LoginRegisterPanel } from "./Custom_hook/useFormLogin";
 import { StoreProduct } from "./Custom_hook/useStoreProduct";
 import { CheckoutProceed } from "./Custom_hook/useCheckout";
+import { useWishlist } from "./Custom_hook/useWishlist";
+import { useAccountInfomation } from "./Custom_hook/useAccountProfile";
 
 // Step 1: Create context
 const ControlDataContext = createContext();
@@ -15,6 +17,7 @@ function ContextProvider({ children }) {
   const [bgCart, setBgCart] = useState(false);
   const [search, setSearch] = useState(false);
   const [valueSearch, setValueSearch] = useState("");
+  const [policy, setPolicy] = useState(false);
   const [userAccount, setUserAccount] = useState(() => {
     try {
       const stored = localStorage.getItem("UserAccount");
@@ -67,6 +70,8 @@ function ContextProvider({ children }) {
     showCart,
     setShowCart,
     handleDeleteItem,
+    bgCheckBag,
+    setBgCheckBag,
   } = StoreProduct({
     setCounters,
     counters,
@@ -90,6 +95,29 @@ function ContextProvider({ children }) {
     currentAccount,
     setUserAccount,
     userAccount,
+  });
+  const { setSaveDropWishlist, setUpdateWishlist, handleSaveWishlist } =
+    useWishlist({
+      currentAccount,
+      setUserAccount,
+      userAccount,
+      setShowLogin,
+      setShowRegister,
+      setBgLoginRegister,
+    });
+  const {
+    purchased,
+    setPurchased,
+    handleCheckoutClearStoreBags,
+    detail,
+    setDetail,
+    showHidden,
+    setShowHidden,
+  } = useAccountInfomation({
+    userAccount,
+    setUserAccount,
+    currentAccount,
+    setCounters,
   });
   return (
     <ControlDataContext.Provider
@@ -123,6 +151,8 @@ function ContextProvider({ children }) {
         bgCart,
         setBgCart,
         showCart,
+        bgCheckBag,
+        setBgCheckBag,
         setShowCart,
         handleDeleteItem,
         deliveryAdd,
@@ -132,6 +162,18 @@ function ContextProvider({ children }) {
         handleDelivery,
         handleBanks,
         handleContact,
+        setSaveDropWishlist,
+        setUpdateWishlist,
+        handleSaveWishlist,
+        purchased,
+        setPurchased,
+        handleCheckoutClearStoreBags,
+        detail,
+        setDetail,
+        showHidden,
+        setShowHidden,
+        policy,
+        setPolicy,
       }}
     >
       {children}

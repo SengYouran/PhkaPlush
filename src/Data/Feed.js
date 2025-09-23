@@ -18,4 +18,31 @@ const data_feeds = [
   Feeds_8,
   Feeds_9,
 ];
-export { data_feeds };
+const provinces = [
+  "Phnom Penh",
+  "Banteay Meanchey",
+  "Battambang",
+  "Kampong Cham",
+  "Kampong Chhnang",
+  "Kampong Speu",
+  "Kampong Thom",
+  "Kampot",
+  "Kandal",
+  "Kep",
+  "Koh Kong",
+  "Kratie",
+  "Mondulkiri",
+  "Oddar Meanchey",
+  "Pailin",
+  "Preah Vihear",
+  "Prey Veng",
+  "Pursat",
+  "Ratanakiri",
+  "Siem Reap",
+  "Preah Sihanouk",
+  "Stung Treng",
+  "Svay Rieng",
+  "Takeo",
+  "Tboung Khmum",
+];
+export { data_feeds, provinces };

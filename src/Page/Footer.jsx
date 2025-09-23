@@ -6,8 +6,10 @@ import J_T from "../assets/logo/JT-Express-Logo.png";
 import VTM from "../assets/logo/vireak-buntham.png";
 import playStore from "../assets/logo/app_android.png";
 import appStore from "../assets/logo/app_ios.png";
+import { useControlData } from "../Context";
 
 function Footer() {
+  const { setPolicy } = useControlData();
   return (
     <React.Fragment>
       <div className="bg-gray-700 py-4 px-6 mt-4">
@@ -37,18 +39,24 @@ function Footer() {
           <div className="flex flex-col gap-4">
             <h2 className="text-[17px] text-white ">RESOURCES</h2>
             <div className="border border-white w-15"></div>
-            <p className="text-[13px] text-gray-100 cursor-pointer">
+            <p
+              className="text-[13px] text-gray-100 cursor-pointer"
+              onClick={() => setPolicy(true)}
+            >
               Privacy Policy
             </p>
-            <p className="text-[13px] text-gray-100 cursor-pointer">
-              Returns Policy
-            </p>
+            <Link
+              to={"/account/faqguides"}
+              className="text-[13px] text-gray-100 cursor-pointer"
+            >
+              FAQs & Guides
+            </Link>
             <Link to={"/"} className="text-[13px] text-gray-100 cursor-pointer">
               Home
             </Link>
-            <p className="text-[13px] text-gray-100 cursor-pointer">
-              Terms of Service
-            </p>
+            <Link to={"/store-locator"} className="text-[13px] text-gray-100 cursor-pointer">
+              Find store
+            </Link>
           </div>
           <div className="flex flex-col gap-4">
             <h2 className="text-[17px] text-white ">WE ACCEPT</h2>
@@ -63,18 +71,31 @@ function Footer() {
             <h2 className="text-[17px] text-white ">FOLLOW @pichpisey</h2>
             <div className="border border-white w-15"></div>
             <div className="flex items-center gap-4">
-              <Link className="bg-blue-600 rounded-[50%] p-.5 shadow-blue-700 cursor-pointer">
-                <i class="fa-brands fa-facebook text-3xl "></i>
-              </Link>
-              <Link className=" rounded-[50%]  shadow-blue-700 cursor-pointer">
-                <i class="fa-brands fa-tiktok text-3xl "></i>
-              </Link>
-              <Link className="cursor-pointer">
-                <i class="fa-brands fa-instagram text-3xl "></i>
-              </Link>
-              <Link className="bg-blue-400 rounded-[50%] p-.5 shadow-blue-700 cursor-pointer">
-                <i class="fa-brands fa-telegram text-3xl"></i>
-              </Link>
+              <a
+                href="https://web.facebook.com/phka.official/?_rdc=1&_rdr#"
+                className="bg-blue-600 rounded-[50%] p-.5 shadow-blue-700 cursor-pointer"
+              >
+                <i className="fa-brands fa-facebook text-3xl "></i>
+              </a>
+              <a
+                href="https://www.tiktok.com/@phka.official"
+                className=" rounded-[50%]  shadow-blue-700 cursor-pointer"
+              >
+                <i className="fa-brands fa-tiktok text-3xl "></i>
+              </a>
+              <a
+                href="https://www.instagram.com/phka.official/"
+                className="cursor-pointer"
+              >
+                <i className="fa-brands fa-instagram text-[#E1306C] text-3xl"></i>
+
+              </a>
+              <a
+                href="https://t.me/phkaofficial"
+                className="bg-blue-400 rounded-[50%] p-.5 shadow-blue-700 cursor-pointer"
+              >
+                <i className="fa-brands fa-telegram text-3xl"></i>
+              </a>
             </div>
           </div>
         </div>

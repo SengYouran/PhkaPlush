@@ -74,6 +74,10 @@ function Mobile() {
               <i className="fa-solid fa-magnifying-glass"></i>
             </span>
             <div className="h-6 border-l border-black"></div>
+            <Link to={"/wishlist"} className="cursor-pointer">
+              <i className="fa-regular fa-heart text-black text-xl"></i>
+            </Link>
+            <div className="h-6 border-l border-black"></div>
             <span
               className="w-[20px] cursor-pointer relative"
               onClick={() => {
@@ -82,7 +86,7 @@ function Mobile() {
               }}
             >
               <img src={cart_bag} alt="StoreBag" />
-              <p className="absolute top-[55%] left-1/2 transform -translate-1/2 font-bold text-sm text-pink-500">
+              <p className="absolute top-[60%] left-1/2 transform -translate-1/2 font-bold text-[15px] text-pink-500">
                 {storeBags}
               </p>
             </span>

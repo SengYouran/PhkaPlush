@@ -42,7 +42,7 @@ function Bags() {
           const discountAmount = render?.totalPrice * positiveValue;
           const afterDis = render?.totalPrice - discountAmount;
           return (
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center" key={render?.id}>
               <div className=" flex gap-2">
                 <img
                   className="w-30 h-30 py-0.5"

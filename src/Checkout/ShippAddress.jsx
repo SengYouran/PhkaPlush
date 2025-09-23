@@ -2,33 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useControlData } from "../Context";
 import vireak_buntham from "../assets/logo/vireak-buntham.png";
 import Delivery from "./Delivery";
-const provinces = [
-  "Phnom Penh",
-  "Banteay Meanchey",
-  "Battambang",
-  "Kampong Cham",
-  "Kampong Chhnang",
-  "Kampong Speu",
-  "Kampong Thom",
-  "Kampot",
-  "Kandal",
-  "Kep",
-  "Koh Kong",
-  "Kratie",
-  "Mondulkiri",
-  "Oddar Meanchey",
-  "Pailin",
-  "Preah Vihear",
-  "Prey Veng",
-  "Pursat",
-  "Ratanakiri",
-  "Siem Reap",
-  "Preah Sihanouk",
-  "Stung Treng",
-  "Svay Rieng",
-  "Takeo",
-  "Tboung Khmum",
-];
+import { provinces } from "../Data/Feed";
 function ShippAddress() {
   const {
     deliveryAdd,
@@ -37,7 +11,6 @@ function ShippAddress() {
     deliveryAddressProvince,
     userAccount,
     currentAccount,
-    setUserAccount,
   } = useControlData();
   const [showProvinces, setShowProvinces] = useState(false);
   const [currently, setCurrently] = useState(null);
@@ -264,7 +237,7 @@ function ShippAddress() {
               name="shippFullname"
               id="shippFullname"
               placeholder="Enter your name"
-              value={deliveryAdd?.fullname || ""}
+              value={deliveryAdd?.fullname ?? ""}
               onChange={(e) =>
                 setDeliveryAdd({ ...deliveryAdd, fullname: e.target.value })
               }
@@ -288,7 +261,7 @@ function ShippAddress() {
                 name="shipppPhone"
                 id="shipppPhone"
                 placeholder="Enter your phone number"
-                value={deliveryAdd?.telephone || ""}
+                value={deliveryAdd?.telephone ?? ""}
                 onChange={(e) =>
                   setDeliveryAdd({ ...deliveryAdd, telephone: e.target.value })
                 }
@@ -303,7 +276,7 @@ function ShippAddress() {
               name="shippAddress"
               id="shippAddress"
               placeholder="Enter your community"
-              value={deliveryAdd?.currentAddress || ""}
+              value={deliveryAdd?.currentAddress ?? ""}
               onChange={(e) =>
                 setDeliveryAdd({
                   ...deliveryAdd,
@@ -321,7 +294,7 @@ function ShippAddress() {
                   type="text"
                   name="countryCheckout"
                   className="text-sm font-medium border border-pink-500 pl-2 w-full h-[2.5rem]"
-                  value={deliveryAdd?.country || ""}
+                  value={deliveryAdd?.country ?? ""}
                   readOnly
                 />
                 <i className="fa-solid fa-chevron-down absolute top-9 right-2 text-sm"></i>
@@ -333,7 +306,7 @@ function ShippAddress() {
                   className="text-sm font-medium border border-pink-500 pl-2 w-full h-[2.5rem] cursor-pointer outline-0"
                   name="provinceCheckout"
                   readOnly
-                  value={deliveryAdd?.province || ""}
+                  value={deliveryAdd?.province ?? ""}
                   onClick={() => setShowProvinces(!showProvinces)}
                 />
                 <i
@@ -384,7 +357,11 @@ function ShippAddress() {
       ></div>
       <div
         className={`bg-white fixed top-0 right-0 h-full flex flex-col gap-6 py-8 px-4 transition-all duration-500 ease-in-out
-    ${bgDelivery ? "w-full md:w-[35rem] z-80 opacity-100" : "-z-80 opacity-0 w-10"}`}
+    ${
+      bgDelivery
+        ? "w-full md:w-[35rem] z-80 opacity-100"
+        : "-z-80 opacity-0 w-10"
+    }`}
       >
         <Delivery
           bgDelivery={bgDelivery}

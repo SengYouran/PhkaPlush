@@ -18,7 +18,7 @@ function Cart() {
     setUserAccount,
     setCounters,
     handleDeleteItem,
-
+    handleSaveWishlist,
   } = useControlData();
   const delivery = 1.25;
   useEffect(() => {
@@ -108,9 +108,13 @@ function Cart() {
           <div className="absolute top-1/2 w-full h-[2px] bg-black origin-center transition-all duration-200 ease-in-out transform rotate-45 group-hover:rotate-0"></div>
           <div className="absolute top-1/2 w-full h-[2px] bg-black origin-center transition-all duration-200 ease-in-out transform -rotate-45 group-hover:rotate-0"></div>
         </div>
-        <span className="absolute top-3 right-4 text-2xl text-black cursor-pointer">
+        <Link
+          to={"/wishlist"}
+          className="absolute top-3 right-4 text-2xl text-black cursor-pointer"
+          
+        >
           <i className="fa-regular fa-heart"></i>
-        </span>
+        </Link>
       </div>
       <div className="border border-gray-100 mt-4"></div>
       {data.length === 0 ? (
@@ -179,7 +183,7 @@ function Cart() {
                 <React.Fragment key={id}>
                   <div className=" flex items-center relative py-1 mt-2">
                     <i
-                      class="fa-solid fa-trash absolute top-0 right-0 cursor-pointer"
+                      className="fa-solid fa-trash absolute top-0 right-0 cursor-pointer"
                       onClick={() => handleDeleteItem(id)}
                     ></i>
                     <div className=" flex gap-4 ">
@@ -187,7 +191,13 @@ function Cart() {
                         <span className="">
                           <img className="w-40 " src={product} alt="" />
                         </span>
-                        <span className="flex items-center gap-2 cursor-pointer">
+                        <span
+                          className="flex items-center gap-2 cursor-pointer"
+                          onClick={() => {
+                            handleSaveWishlist(id);
+                            handleDeleteItem(id);
+                          }}
+                        >
                           <i className="fa-regular fa-heart"></i>
                           <h2 className="  text-[13px] ">More to wishlist</h2>
                         </span>
@@ -324,9 +334,7 @@ function Cart() {
               setShowCart(false);
             }}
           >
-            <button
-              className="bg-black mt-8 mx-2 text-white text-[17px] text-center w-[96%] py-2 rounded cursor-pointer hover:bg-gray-800"
-            >
+            <button className="bg-black mt-8 mx-2 text-white text-[17px] text-center w-[96%] py-2 rounded cursor-pointer hover:bg-gray-800">
               Proceed to checkout
             </button>
           </Link>

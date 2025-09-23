@@ -9,54 +9,65 @@ const banks = [
   {
     id: "b1",
     bank: ABA,
+    name_bank: "ABA",
   },
   {
     id: "b2",
     bank: ChipMong,
+    name_bank: "ChipMong",
   },
   {
     id: "b3",
     bank: ACLEDA,
+    name_bank: "ACLEDA",
   },
   {
     id: "b4",
     bank: CrditCard,
+    name_bank: "Credit card",
   },
   {
     id: "b5",
     bank: CashOnDelivery,
+    name_bank: "Cash on delivery",
   },
 ];
 function Bank() {
-  const [bank, setBank] = useState([]);
+  const [bank, setBank] = useState(null); // ✅ Start with null, not []
   const { userAccount, currentAccount, handleBanks } = useControlData();
+
   useEffect(() => {
     const userIndex = userAccount.find(
       (check) => check.id === currentAccount.id
     );
     const filterBank = userIndex?.banks;
-    setBank(filterBank);
+    setBank(filterBank ?? null); // fallback to null if undefined
   }, [userAccount]);
+
   return (
     <div className="flex flex-col gap-2 mt-2">
       {banks.map((render) => (
         <div
           className="flex items-center gap-4 py-1 cursor-pointer"
-          key={render?.id}
+          key={render.id}
           onClick={() => handleBanks(render)}
         >
-          <label htmlFor="checkBank">
+          <label htmlFor={`checkBank-${render.id}`}>
             <input
-              className="w-[17px] h-[17px] accent-pink-500 cursor-pointer"
-              type="checkbox"
+              id={`checkBank-${render.id}`}
               name="checkBank"
-              id="checkBank"
-              checked={render?.id == bank?.id}
+              type="checkbox"
+              className="w-[17px] h-[17px] accent-pink-500 cursor-pointer"
+              checked={render.id === bank?.id}
               onChange={() => handleBanks(render)}
             />
           </label>
-          <div className="">
-            <img className="w-60 h-10" src={render?.bank} alt="" />
+          <div>
+            <img
+              className="w-60 h-10"
+              src={render?.bank}
+              alt={render?.name_bank}
+            />
           </div>
         </div>
       ))}

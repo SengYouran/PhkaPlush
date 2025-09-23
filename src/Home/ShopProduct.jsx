@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { data_product } from "../Data/ProductInfomation";
 import cart_white from "../assets/logo/cart-white.png";
 import { Link } from "react-router-dom";
@@ -7,7 +7,16 @@ import { useControlData } from "../Context.jsx";
 
 function ShopProduct() {
   const productRefs = useInViewAnimation("active", 200); // 100ms delay per product
-  const { handleCart } = useControlData();
+  const { handleCart, userAccount, currentAccount, handleSaveWishlist } =
+    useControlData();
+  const [currentWishlist, setCurrentWishlist] = useState({});
+  useEffect(() => {
+    const getWishlistActive = userAccount.find(
+      (check) => check.id === currentAccount.id
+    );
+    const selectWishlist = getWishlistActive?.activeWishlist;
+    setCurrentWishlist(selectWishlist);
+  }, [userAccount]);
   return (
     <section>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
@@ -41,7 +50,13 @@ function ShopProduct() {
               >
                 {render?.product_name}
               </h2>
-              <i className="fa-regular fa-heart text-xl text-black cursor-pointer relative z-10"></i>
+              <span className="" onClick={() => handleSaveWishlist(render?.id)}>
+                {currentWishlist?.[render?.id] ? (
+                  <i className="fa-solid fa-heart text-xl text-black cursor-pointer relative z-10"></i>
+                ) : (
+                  <i className="fa-regular fa-heart text-xl text-black cursor-pointer relative z-10"></i>
+                )}
+              </span>
             </span>
 
             <p className="text-[12px] text-gray-600 overflow-hidden text-ellipsis whitespace-nowrap w-[17rem]">

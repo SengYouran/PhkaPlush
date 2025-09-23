@@ -9,6 +9,16 @@ import Shop from "./rootLayout/Shop";
 import Checkout from "./Checkout/Checkout";
 import Account from "./Account/Account";
 import ControllAccount from "./Account/ControllAccount";
+import Wishlist from "./Page/Wishlist";
+import Profile from "./Account/Profile";
+import Ordered from "./Account/Ordered";
+import GiftCard from "./Account/GiftCard";
+import Password from "./Account/Password";
+import AddressBook from "./Account/AddressBook";
+import { Navigate } from "react-router-dom";
+import DetailPurchased from "./Account/DetailPurchased";
+import FAQsGuides from "./Account/FAQsGuides";
+import FindStore from "./AboutCompany/FindStore";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,9 +68,36 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <ControllAccount />,
+            element: <Navigate to="editprofile" replace />,
           },
+          {
+            path: "editprofile",
+            element: <Profile />,
+          },
+          {
+            path: "orders",
+            element: <Ordered />,
+            errorElement: <Error />,
+            children: [
+              {
+                path: "detail/:id",
+                element: <DetailPurchased />,
+              },
+            ],
+          },
+          { path: "giftcard", element: <GiftCard /> },
+          { path: "addressbook", element: <AddressBook /> },
+          { path: "password", element: <Password /> },
+          { path: "faqguides", element: <FAQsGuides /> },
         ],
+      },
+      {
+        path: "wishlist",
+        element: <Wishlist />,
+      },
+      {
+        path: "store-locator",
+        element: <FindStore />,
       },
     ],
   },

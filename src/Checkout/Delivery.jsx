@@ -30,7 +30,7 @@ function Delivery({ bgDelivery, setBgDelivery, currently, selectedDelivery }) {
   const { handleDelivery } = useControlData();
   const [selected, setSelected] = useState(null);
   return (
-  <>
+    <>
       <div className="flex justify-center items-center relative">
         <i
           className="fa-solid fa-less-than absolute left-2 top-1/2 -translate-1/2 cursor-pointer"
@@ -68,16 +68,17 @@ function Delivery({ bgDelivery, setBgDelivery, currently, selectedDelivery }) {
               </div>
               <label htmlFor="checkDelivery">
                 <input
-                  className="cursor-pointer accent-pink-500 w-[18px] h-[18px]"
                   type="checkbox"
+                  className="cursor-pointer accent-pink-500 w-[18px] h-[18px]"
                   name="checkDelivery"
-                  id="checkDelivery"
+                  id={`checkDelivery-${render.id}`} // avoid duplicate IDs!
                   checked={
-                    selectedDelivery?.id == render.id
-                      ? selectedDelivery?.id === render.id
-                      : selected?.id === render.id
-                  } // ✅ check only if matched
-                  onChange={() => setSelected(render)} // ✅ override selected
+                    selectedDelivery?.id === render.id ||
+                    selected?.id === render.id
+                      ? true
+                      : false
+                  }
+                  onChange={() => setSelected(render)}
                 />
               </label>
             </div>

@@ -13,13 +13,19 @@ function Order_Product() {
   const [bg_smallImg, setBg_SmallImg] = useState(0);
   const [KHR, setKHR] = useState(null);
   const scrollRef = useRef(null);
-  
+
   const {
     handleCounterDash,
     handleCounterPlus,
     counters,
     handleCart,
-    setShowRegister,setBgCart
+    setShowRegister,
+    setBgCart,
+    currentAccount,
+    setShowLogin,
+    setBgLoginRegister,
+    bgCheckBag,
+    setBgCheckBag,
   } = useControlData();
   const images = [
     products?.relate1,
@@ -68,7 +74,7 @@ function Order_Product() {
   return (
     <>
       <div className="bg-white p-2 rounded-2xl flex flex-wrap md:flex-nowrap justify-center gap-6 mt-4">
-        <div className="flex flex-col w-full h-[60vh] md:h-full md:w-1/2 bg-gray-50 p-2 rounded-xl relative">
+        <div className="flex flex-col w-full h-[70vh] md:h-full md:w-1/2 bg-gray-50 p-2 rounded-xl relative">
           {/* Prev Button */}
           <span
             className={`absolute left-2 top-[35%] bg-pink-200 py-1 px-2 rounded-full cursor-pointer z-10
@@ -82,13 +88,13 @@ function Order_Product() {
 
           {/* Scrollable Image Container */}
           <div
-            className="conrainer-scroll overflow-x-auto flex w-full h-[90vh] scroll-smooth"
+            className="conrainer-scroll overflow-x-auto flex w-full h-full scroll-smooth"
             ref={scrollRef}
           >
             {images.map((img, i) => (
               <div
                 key={i}
-                className="scroll_middle flex-none w-full h-full transition-all duration-300"
+                className="scroll_middle flex-none w-full h-full transition-all duration-300 ease-in-out" 
               >
                 <img
                   className="w-full h-full "
@@ -117,7 +123,7 @@ function Order_Product() {
             {images.map((img, i) => (
               <span
                 key={i}
-                className={`cursor-pointer w-full max-w-[10rem] transition duration-300  relative`}
+                className={`cursor-pointer w-full max-w-[10rem] transition duration-300 relative`}
                 onClick={() => scrollToImage(i)}
               >
                 <img
@@ -178,9 +184,13 @@ function Order_Product() {
             <img className="w-4 animation" src={cart_white} alt="cart logo" />
             <button
               className="cursor-pointer text-white"
-              onClick={() => {
-                handleCart(id), setShowRegister(true), setBgCart(true);
-              }}
+              onClick={() =>
+                currentAccount == 0
+                  ? (setShowLogin(true),
+                    setShowRegister(true),
+                    setBgLoginRegister(true))
+                  : (handleCart(id), setBgCheckBag(true), setBgCart(true))
+              }
             >
               Add to Bag
             </button>
@@ -192,7 +202,11 @@ function Order_Product() {
         </div>
       </div>
       {products?.text_befenit ? <RelateProduct products={products} /> : null}
-      <CheckBag products={products} />
+      <CheckBag
+        products={products}
+        bgCheckBag={bgCheckBag}
+        setBgCheckBag={setBgCheckBag}
+      />
       <Similar id={id} />
     </>
   );

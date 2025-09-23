@@ -9,6 +9,7 @@ function LoginRegisterPanel() {
     gender: "",
     fullName: "",
     telephone: "",
+    date: "",
     email: "",
     country: "Cambodia",
     provinces: "",
@@ -41,6 +42,7 @@ function LoginRegisterPanel() {
         email: form.email,
         country: form.country,
         provinces: form.provinces,
+        date: form.date,
         password: password2,
       };
       setUserAccount([userData, ...userAccount]);
