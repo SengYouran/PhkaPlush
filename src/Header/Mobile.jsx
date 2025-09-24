@@ -91,9 +91,9 @@ function Mobile() {
               </p>
             </span>
             <div className="h-6 border-l border-black"></div>
-            <span className="text-xl cursor-pointer">
+            <Link to={"/account"} className="text-xl cursor-pointer">
               <i className="fa-solid fa-face-smile text-pink-500"></i>
-            </span>
+            </Link>
           </div>
         ) : null}
       </header>
