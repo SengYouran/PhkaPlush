@@ -6,8 +6,6 @@ function Wishlist() {
   const {
     userAccount,
     currentAccount,
-    setSaveWishlist,
-    setUpdateWishlist,
     handleSaveWishlist,
     handleCart,
   } = useControlData();
@@ -16,7 +14,7 @@ function Wishlist() {
     const userIndex = userAccount.find(
       (check) => check.id === currentAccount.id
     );
-    const getWishlist = userIndex?.storeWishlist;
+    const getWishlist = userIndex?.storeWishlist || {};
     setDataWishlist(getWishlist);
   }, [userAccount]);
   return (
