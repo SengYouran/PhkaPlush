@@ -94,7 +94,7 @@ function Order_Product() {
             {images.map((img, i) => (
               <div
                 key={i}
-                className="scroll_middle flex-none w-full h-full transition-all duration-300 ease-in-out" 
+                className="scroll_middle flex-none w-full h-100 transition-all duration-300 ease-in-out" 
               >
                 <img
                   className="w-full h-full "

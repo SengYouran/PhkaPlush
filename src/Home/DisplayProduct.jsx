@@ -23,11 +23,11 @@ function DisplayProduct() {
     const relative = (i - index + dataItems.length) % dataItems.length;
     switch (relative) {
       case 0:
-        return "z-30 opacity-100 scale-90 xl:translate-x-15 cursor-pointer";
+        return "z-30 opacity-100 md:scale-80 md:translate-x-25 xl:scale-90 2xl:scale-200 xl:translate-x-15 cursor-pointer";
       case 1:
-        return "z-20 opacity-60 scale-60 translate-x-72 blur-[4px]";
+        return "z-20 opacity-60 md:scale-55 md:translate-x-75 xl:translate-x-70 scale-60 2xl:scale-150 2xl:translate-x-150 translate-x-72 blur-[4px]";
       case 2:
-        return "z-10 opacity-30 scale-40 translate-x-108 blur-[6px]";
+        return "z-10 opacity-30 scale-40 translate-x-104 blur-[6px] 2xl:scale-100 2xl:translate-x-240";
       default:
         0;
         return "opacity-0 translate-y-[500px] scale-60";
@@ -36,13 +36,13 @@ function DisplayProduct() {
 
   return (
     <div
-      className="w-full h-[50%] md:h-[70%] p-4 bg-white mt-8 text-black flex justify-center items-center 
-    relative overflow-hidden 2xl:hidden"
+      className="w-full h-[50%] xl:h-[70%] p-4 bg-white mt-8 text-black flex justify-center items-center 
+    relative overflow-hidden "
     >
       {/* Text Section */}
-      <div className=" hidden xl:flex flex-col absolute left-10 top-1/2 -translate-y-1/2 w-76">
+      <div className=" hidden md:flex flex-col absolute left-10 top-1/2 -translate-y-1/2 w-76 2xl:w-120 ">
         <h2
-          className={`text-4xl font-rowdies ${
+          className={`text-4xl 2xl:text-6xl font-rowdies ${
             dataItems[index]?.colorText
           } font-bold mb-2 transition-opacity duration-1000 ${
             showText ? "opacity-100" : "opacity-0"
@@ -64,7 +64,7 @@ function DisplayProduct() {
           Order now
         </Link>
       </div>
-      <div className="flex items-center gap-8 xl:hidden absolute top-0 ">
+      <div className="flex items-center gap-8 md:hidden absolute top-0 ">
         <span className="mt-2">
           {" "}
           <h2
@@ -93,12 +93,12 @@ function DisplayProduct() {
             key={i}
             className={`absolute w-[300px] h-[250px] transition-all duration-1000 ease-in-out transform ${getPositionClass(
               i
-            )} flex justify-center items-center `}
+            )} flex justify-center items-center`}
           >
             <img
               src={item.image}
               alt={item.name}
-              className="w-full h-full  rounded-lg shadow-lg "
+              className="w-full h-full rounded-lg shadow-2xl "
             />
           </Link>
         ))}

@@ -76,8 +76,8 @@ function DetailPurchased() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-        <div className="sm:w-[60%] border pt-1 px-2">
+      <div className="flex flex-wrap md:flex-nowrap gap-2">
+        <div className="w-full md:w-[60%] border pt-1 px-2">
           <span className="flex items-center gap-4 ">
             <i className="fa-solid fa-bag-shopping -mt-0.5"></i>
             <h2>Order item ({detailProduct?.counter})</h2>
@@ -106,7 +106,7 @@ function DetailPurchased() {
             </div>
           </div>
         </div>
-        <div className="sm:w-[40%] flex flex-col gap-2">
+        <div className="w-full md:w-[40%] flex flex-col gap-2">
           <div className="border flex flex-col pt-1 px-2">
             <span className="flex items-center gap-4 ">
               <i className="fa-solid fa-sack-dollar -mt-0.5"></i>

@@ -13,6 +13,7 @@ const useControlData = () => useContext(ControlDataContext);
 
 // Step 3: Context provider
 function ContextProvider({ children }) {
+  const [navActive, setNavActive] = useState(0); //link header
   const [bgLoginRegister, setBgLoginRegister] = useState(false);
   const [bgCart, setBgCart] = useState(false);
   const [search, setSearch] = useState(false);
@@ -122,6 +123,8 @@ function ContextProvider({ children }) {
   return (
     <ControlDataContext.Provider
       value={{
+        navActive,
+        setNavActive,
         userAccount,
         setUserAccount,
         currentAccount,

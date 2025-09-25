@@ -63,6 +63,12 @@ function Wishlist() {
                   <p className="text-sm overflow-hidden text-ellipsis whitespace-nowrap w-[10rem]">
                     {render?.product_text}
                   </p>
+                  {render?.discount && (
+                    <p className="tetx-sm">
+                      discount:{" "}
+                      <span className="text-red-600">{render?.discount}</span>
+                    </p>
+                  )}
                 </div>
               </div>
               <button

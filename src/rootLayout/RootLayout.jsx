@@ -41,7 +41,7 @@ function RootLayout() {
       <Search />
       <PrivacyPolicy />
       {/* ✅ Main content */}
-      <main className="pt-18 mx-4 md:mx-36 ">
+      <main className="pt-18 mx-4 xl:mx-32 ">
         <Outlet />
       </main>
     </div>

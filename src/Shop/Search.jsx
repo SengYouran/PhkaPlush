@@ -47,7 +47,7 @@ function Search() {
               ref={refSearch}
               type="search"
               name="search"
-              className="search absolute left-[15%] w-[70%] h-12 text-[15px] outline-0 border-0 pl-2"
+              className="search absolute left-[15%] md:w-[70%] h-12 text-[15px] outline-0 border-0 pl-2"
               placeholder="What are you searching for?"
               value={valueSearch}
               onKeyDown={handleSearch}

@@ -18,7 +18,7 @@ function Cart() {
     setUserAccount,
     setCounters,
     handleDeleteItem,
-    handleSaveWishlist,
+    handleSaveWishlist,setNavActive
   } = useControlData();
   const delivery = 1.25;
   useEffect(() => {
@@ -111,7 +111,10 @@ function Cart() {
         <Link
           to={"/wishlist"}
           className="absolute top-3 right-4 text-2xl text-black cursor-pointer"
-          
+          onClick={() => {
+            setShowCart(false);
+            setBgCart(false);
+          }}
         >
           <i className="fa-regular fa-heart"></i>
         </Link>
@@ -334,7 +337,10 @@ function Cart() {
               setShowCart(false);
             }}
           >
-            <button className="bg-black mt-8 mx-2 text-white text-[17px] text-center w-[96%] py-2 rounded cursor-pointer hover:bg-gray-800">
+            <button
+              className="bg-black mt-8 mx-2 text-white text-[17px] text-center w-[96%] py-2 rounded cursor-pointer hover:bg-gray-800"
+              onClick={() => setNavActive(null)}
+            >
               Proceed to checkout
             </button>
           </Link>

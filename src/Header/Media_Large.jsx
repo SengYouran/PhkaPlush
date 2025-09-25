@@ -21,8 +21,10 @@ function Media_Large() {
     setShowCart,
     setBgCart,
     userAccount,
+    navActive,
+    setNavActive,
   } = useControlData();
-  const [navActive, setNavActive] = useState(0);
+
   const [storeBags, setStoreBage] = useState(0);
   const location = useLocation();
   useEffect(() => {
@@ -56,13 +58,22 @@ function Media_Large() {
         <div className="flex items-center gap-2">
           <h2 className="text-sx">Follow Us On</h2>
           <div className="flex items-center gap-4">
-            <a href="https://web.facebook.com/phka.official/?_rdc=1&_rdr#" className="cursor-pointer">
+            <a
+              href="https://web.facebook.com/phka.official/?_rdc=1&_rdr#"
+              className="cursor-pointer"
+            >
               <i class="fa-brands fa-facebook text-sm "></i>
             </a>
-            <a href="https://www.tiktok.com/@phka.official" className=" cursor-pointer">
+            <a
+              href="https://www.tiktok.com/@phka.official"
+              className=" cursor-pointer"
+            >
               <i class="fa-brands fa-tiktok text-sm "></i>
             </a>
-            <a href="https://www.instagram.com/phka.official/" className="cursor-pointer">
+            <a
+              href="https://www.instagram.com/phka.official/"
+              className="cursor-pointer"
+            >
               <i class="fa-brands fa-instagram text-sm "></i>
             </a>
             <a href="https://t.me/phkaofficial" className=" cursor-pointer">
@@ -71,7 +82,7 @@ function Media_Large() {
           </div>
         </div>
       </header>
-      <header className=" hidden md:flex fixed top-6 w-screen justify-between items-center z-70 px-8 py-1 bg-white shadow shadow-gray-200">
+      <header className="hidden xl:flex fixed top-6 w-screen justify-between items-center z-70 px-8 py-1 bg-white shadow shadow-gray-200">
         <div className=" cursor-pointer">
           <img src={Logo} alt="Logo Website" className=" h-6" />
         </div>
@@ -105,7 +116,11 @@ function Media_Large() {
                 <i className="fa-solid fa-magnifying-glass"></i>
               </span>
               <div className="h-6 border-l border-black"></div>
-              <Link to={"/wishlist"} className="cursor-pointer">
+              <Link
+                to={"/wishlist"}
+                className="cursor-pointer"
+                onClick={() => setNavActive(null)}
+              >
                 <i className="fa-regular fa-heart text-black text-2xl"></i>
               </Link>
               <div className="h-6 border-l border-black"></div>
@@ -122,7 +137,11 @@ function Media_Large() {
                 </p>
               </span>
               <div className="h-6 border-l border-black"></div>
-              <Link to={"/account"} className="text-2xl cursor-pointer">
+              <Link
+                to={"/account"}
+                className="text-2xl cursor-pointer"
+                onClick={() => setNavActive(null)}
+              >
                 <i className="fa-solid fa-face-smile text-pink-500"></i>
               </Link>
             </div>
