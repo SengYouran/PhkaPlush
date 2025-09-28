@@ -6,20 +6,28 @@ import useInViewAnimation from "../Custom_hook/useInViewAnimation.js";
 import { useControlData } from "../Context.jsx";
 function Product() {
   const productRefs = useInViewAnimation("active", 200); // 100ms delay per product
-  const { handleCart, handleSaveWishlist, userAccount, currentAccount } =
-    useControlData();
+  const {
+    handleCart,
+    handleSaveWishlist,
+    userAccount,
+    currentAccount,
+    showData,
+    setShowData,
+  } = useControlData();
   const [currentWishlist, setCurrentWishlist] = useState({});
+
   useEffect(() => {
     const getWishlistActive = userAccount.find(
       (check) => check.id === currentAccount.id
     );
+
     const selectWishlist = getWishlistActive?.activeWishlist;
     setCurrentWishlist(selectWishlist);
   }, [userAccount]);
   return (
     <section>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-        {data_product.map((render, index) => (
+        {showData.map((render, index) => (
           <div
             key={render?.id}
             ref={(el) => (productRefs.current[index] = el)}

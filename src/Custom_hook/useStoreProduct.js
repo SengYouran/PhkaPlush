@@ -13,6 +13,7 @@ function StoreProduct({
 }) {
   const [showCart, setShowCart] = useState(false);
   const [bgCheckBag, setBgCheckBag] = useState(false);
+  const [showData, setShowData] = useState(data_product);
   function handleCart(id) {
     if (currentAccount == 0) {
       setShowLogin(true);
@@ -112,6 +113,8 @@ function StoreProduct({
     handleDeleteItem,
     bgCheckBag,
     setBgCheckBag,
+    showData,
+    setShowData,
   };
 }
 

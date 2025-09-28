@@ -20,8 +20,8 @@ function RootLayout() {
       <Mobile />
       <BothForm />
       <div
-        className={`bg-gray-100 fixed inset-0  ${
-          bgCart ? "z-70 opacity-70" : "-z-100 opacity-0"
+        className={`bg-black fixed inset-0  ${
+          bgCart ? "z-70 opacity-10" : "-z-10 opacity-0"
         }`}
         onClick={() => {
           setBgCart(false);

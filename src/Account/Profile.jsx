@@ -11,7 +11,6 @@ function Profile() {
     setform,
     showHidden,
   } = useControlData();
-
   useEffect(() => {
     const userData = userAccount.find(
       (check) => check.id === currentAccount.id

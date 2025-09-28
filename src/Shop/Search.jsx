@@ -1,24 +1,43 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useControlData } from "../Context";
 import { useNavigate } from "react-router-dom";
-
+import { data_product } from "../Data/ProductInfomation";
 function Search() {
-  const { search, setSearch, valueSearch, setValueSearch } = useControlData();
+  const {
+    search,
+    setSearch,
+    valueSearch,
+    setValueSearch,
+    showData,
+    setShowData,
+  } = useControlData();
   const refSearch = useRef(null);
   const navigator = useNavigate();
+  const [currentData, setCurrentData] = useState([]);
   useEffect(() => {
     if (search && refSearch.current) {
       refSearch.current.focus();
     }
   }, [search]);
+  useEffect(() => {
+    handleSearchValue();
+  }, [valueSearch]);
   function handleSearch(e) {
     if (e.key === "Enter") {
       e.preventDefault();
       if (valueSearch === "") return;
+      setShowData(currentData);
       navigator("/shop");
       setSearch(false);
       setValueSearch("");
     }
+  }
+  function handleSearchValue() {
+    const dataValue = valueSearch.toLowerCase();
+    const dataProduct = data_product.filter((check) =>
+      check.product_name.toLowerCase().includes(dataValue)
+    );
+    setCurrentData(dataProduct);
   }
   return (
     <>
@@ -57,7 +76,8 @@ function Search() {
               className="cursor-pointer absolute right-[15%] px-4 py-1 rounded text-black hover:bg-gray-100"
               onClick={(e) => {
                 e.preventDefault();
-                if(valueSearch==="")return;
+                if (valueSearch === "") return;
+                setShowData(currentData);
                 navigator("/shop");
                 setSearch(false);
                 setValueSearch("");

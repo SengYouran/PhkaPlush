@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { LoginRegisterPanel } from "./Custom_hook/useFormLogin";
+import { useLoginRegisterPanel } from "./Custom_hook/useFormLogin";
 import { StoreProduct } from "./Custom_hook/useStoreProduct";
 import { CheckoutProceed } from "./Custom_hook/useCheckout";
 import { useWishlist } from "./Custom_hook/useWishlist";
@@ -63,7 +63,8 @@ function ContextProvider({ children }) {
     handleChange,
     selectProvince,
     setSelectProvince,
-  } = LoginRegisterPanel();
+    handleLogout,
+  } = useLoginRegisterPanel({ setCurrentAccount });
   const {
     handleCounterDash,
     handleCounterPlus,
@@ -73,6 +74,8 @@ function ContextProvider({ children }) {
     handleDeleteItem,
     bgCheckBag,
     setBgCheckBag,
+    showData,
+    setShowData,
   } = StoreProduct({
     setCounters,
     counters,
@@ -114,6 +117,8 @@ function ContextProvider({ children }) {
     setDetail,
     showHidden,
     setShowHidden,
+    faqguides,
+    setFaqGuides,
   } = useAccountInfomation({
     userAccount,
     setUserAccount,
@@ -131,6 +136,7 @@ function ContextProvider({ children }) {
         setCurrentAccount,
         showLogin,
         setShowLogin,
+        handleLogout,
         form,
         setform,
         handleCreateAccount,
@@ -177,6 +183,10 @@ function ContextProvider({ children }) {
         setShowHidden,
         policy,
         setPolicy,
+        faqguides,
+        setFaqGuides,
+        showData,
+        setShowData,
       }}
     >
       {children}

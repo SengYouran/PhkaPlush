@@ -3,12 +3,8 @@ import { useControlData } from "../Context";
 import { Link } from "react-router-dom";
 
 function Wishlist() {
-  const {
-    userAccount,
-    currentAccount,
-    handleSaveWishlist,
-    handleCart,
-  } = useControlData();
+  const { userAccount, currentAccount, handleSaveWishlist, handleCart } =
+    useControlData();
   const [dataWishlist, setDataWishlist] = useState(null);
   useEffect(() => {
     const userIndex = userAccount.find(

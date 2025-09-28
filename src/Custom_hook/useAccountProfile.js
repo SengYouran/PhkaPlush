@@ -9,6 +9,7 @@ function useAccountInfomation({
   const [purchased, setPurchased] = useState([]);
   const [detail, setDetail] = useState(false);
   const [showHidden, setShowHidden] = useState(false);
+  const [faqguides, setFaqGuides] = useState(false);
   function handleCheckoutClearStoreBags() {
     const now = new Date();
     const dateTime = now.toLocaleString("en-US", {
@@ -77,7 +78,11 @@ function useAccountInfomation({
     setPurchased,
     handleCheckoutClearStoreBags,
     detail,
-    setDetail,showHidden, setShowHidden
+    setDetail,
+    showHidden,
+    setShowHidden,
+    faqguides,
+    setFaqGuides,
   };
 }
 

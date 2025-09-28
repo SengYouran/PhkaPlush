@@ -1,10 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function LoginRegisterPanel() {
+function useLoginRegisterPanel({ setCurrentAccount }) {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [selectProvince, setSelectProvince] = useState(false);
-
   const [form, setform] = useState({
     gender: "",
     fullName: "",
@@ -58,7 +58,13 @@ function LoginRegisterPanel() {
       alert("Update to storageUser");
     }
   }
-
+  function handleLogout() {
+    localStorage.removeItem("storeCurrentAccount");
+    setCurrentAccount([]);
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
+  }
   return {
     showLogin,
     setShowLogin,
@@ -71,6 +77,7 @@ function LoginRegisterPanel() {
     handleChange,
     selectProvince,
     setSelectProvince,
+    handleLogout,
   };
 }
-export { LoginRegisterPanel };
+export { useLoginRegisterPanel };

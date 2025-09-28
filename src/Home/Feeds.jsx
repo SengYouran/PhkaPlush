@@ -6,7 +6,7 @@ function Feeds() {
   return (
     <div className="bg-gray-200 rounded mt-4 py-2 px-4 overflow-hidden">
       <h2 className="text-4xl font-rowdies text-center">Feeds</h2>
-      <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  gap-4 mt-4">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-5 gap-4 mt-4">
         {data_feeds.map((render, index) => (
           <span
             key={index}

@@ -3,7 +3,7 @@ import { useControlData } from "../Context";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import DetailPurchased from "./DetailPurchased";
 function Ordered() {
-  const { userAccount, currentAccount,showHidden } = useControlData();
+  const { userAccount, currentAccount, showHidden } = useControlData();
   const [currentPurchased, setCurrentPurchased] = useState([]);
   const { setDetail } = useControlData();
   useEffect(() => {
@@ -20,9 +20,11 @@ function Ordered() {
   const location = useLocation();
   const isDetailPage = location.pathname.includes("/detail/");
   return (
-    <div className={`md:w-[73%] md:ml-[27%] mt-4 min-h-[70vh] ${
+    <div
+      className={`md:w-[73%] md:ml-[27%] mt-4 min-h-[70vh] ${
         showHidden ? "hidden md:blcok" : "blcok"
-      }`}>
+      }`}
+    >
       <h2
         className={`${
           isDetailPage ? "hidden" : "block text-center text-xl font-medium"
@@ -30,9 +32,9 @@ function Ordered() {
       >
         Orders and return
       </h2>
-      {currentPurchased?.length === undefined ? (
+      {currentPurchased?.length === 0 ? (
         <div className="flex flex-col justify-center items-center gap-4 mt-8">
-          <h2 className="no_pruchased text-center text-gray-600 text-lg font-medium">
+          <h2 className="no_pruchased text-center text-gray-700 text-lg font-medium">
             You haven’t made any purchases yet.
             <br />
             Once you place an order, it will show up here.
@@ -72,7 +74,6 @@ function Ordered() {
                     onClick={() => {
                       handleDetialProduct(render?.id);
                       setDetail(true);
-                      
                     }}
                   >
                     Detail

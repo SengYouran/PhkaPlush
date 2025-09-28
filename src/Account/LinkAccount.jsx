@@ -13,7 +13,7 @@ const linkAccount = [
 function LinkAccount({ setShowHidden }) {
   const [activeLinkAcc, setActiveLinkAcc] = useState(0);
   const location = useLocation(); // ✅ បង្កើត location object
-  const [faqguides, setFaqGuides] = useState(false);
+
   const navigate = useNavigate();
   useEffect(() => {
     const locationPath = linkAccount.find(({ path }) =>
@@ -23,7 +23,7 @@ function LinkAccount({ setShowHidden }) {
       setActiveLinkAcc(locationPath.id);
     }
   }, [location.pathname]); // ✅ ដាក់តែ pathname ជា dependency
-  const { setDetail, setPolicy } = useControlData();
+  const { setDetail, setPolicy, faqguides, setFaqGuides } = useControlData();
   function handlelink(path) {
     navigate(path);
   }

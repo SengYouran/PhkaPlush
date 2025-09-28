@@ -30,6 +30,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .scroll_middle {
   scroll-snap-align: start;
 }
+.collapsible {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.collapsible.open {
+  max-height: 500px; /* or whatever fits your content */
+}
+
 .container_bothFrom::-webkit-scrollbar {
   display: none;
 }

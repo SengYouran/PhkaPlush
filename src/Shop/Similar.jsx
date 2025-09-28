@@ -24,7 +24,11 @@ function Similar({ id }) {
   }, [userAccount]);
   return (
     <section>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      <div className="flex items-center gap-2 mt-4 border-b">
+        <i className="fa-solid fa-dumpster-fire text-xl"></i>
+        <h2 className="text-xl font-medium">Similar items</h2>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-1">
         {similar.map((render, index) => (
           <div
             key={render?.id}

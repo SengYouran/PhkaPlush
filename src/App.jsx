@@ -1,4 +1,4 @@
-import { Home, New_Arrival, On_sale, Context_us } from "./Page";
+import { Home, New_Arrival, Context_us } from "./Page";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Order_Product from "./Shop/Oder_Product";
 import Product from "./Shop/Product";
@@ -19,6 +19,7 @@ import { Navigate } from "react-router-dom";
 import DetailPurchased from "./Account/DetailPurchased";
 import FAQsGuides from "./Account/FAQsGuides";
 import FindStore from "./AboutCompany/FindStore";
+import AboutUs from "./AboutCompany/AboutUs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,10 +49,6 @@ const router = createBrowserRouter([
       {
         path: "new_arrival",
         element: <New_Arrival />,
-      },
-      {
-        path: "on_sale",
-        element: <On_sale />,
       },
       {
         path: "context_us",
@@ -98,6 +95,10 @@ const router = createBrowserRouter([
       {
         path: "store-locator",
         element: <FindStore />,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
       },
     ],
   },

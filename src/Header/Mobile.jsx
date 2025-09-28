@@ -1,14 +1,14 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo/beauty body.png";
 import { useEffect, useState } from "react";
 import { useControlData } from "../Context";
 import cart_bag from "../assets/logo/shopping bag.png";
+import { data_product } from "../Data/ProductInfomation";
 const navLinks = [
   { id: 1, label: "Home", path: "/" },
   { id: 2, label: "Shop", path: "/shop" },
   { id: 3, label: "New Arrival", path: "/new_arrival" },
-  { id: 4, label: "On Sale", path: "/on_sale" },
-  { id: 5, label: "Context Us", path: "/context_us" },
+  { id: 4, label: "Find Store", path: "/store-locator" },
 ];
 function Mobile() {
   const {
@@ -20,6 +20,7 @@ function Mobile() {
     setShowCart,
     setBgCart,
     userAccount,
+    setShowData,
   } = useControlData();
   const [navActive, setNavActive] = useState(0);
   const [showNavLink, setShowNavLink] = useState(false);
@@ -47,6 +48,7 @@ function Mobile() {
     });
     setStoreBage(totalCounter);
   }, [userAccount]);
+  const navigator = useNavigate();
   return (
     <>
       <header
@@ -131,6 +133,7 @@ function Mobile() {
                 onClick={() => {
                   setNavActive(render.id);
                   setShowNavLink(false);
+                  setShowData(data_product);
                 }}
               >
                 <Link to={render.path} className="text-2xl">
@@ -143,7 +146,13 @@ function Mobile() {
         {currentAccount.length != 0 ? (
           <div className="absolute left-[40%] bottom-16 flex items-center gap-2 cursor-pointer group">
             <i class="fa-solid fa-right-from-bracket"></i>
-            <h2 className="bg-pink-500 py-1 px-4 text-white rounded group-hover:bg-pink-600">
+            <h2
+              className="bg-pink-500 py-1 px-4 text-white rounded group-hover:bg-pink-600"
+              onClick={() => {
+                handleLogout();
+                navigator("/");
+              }}
+            >
               Logout
             </h2>
           </div>

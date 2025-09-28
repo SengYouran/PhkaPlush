@@ -3,12 +3,12 @@ import Logo from "../assets/logo/beauty body.png";
 import { useEffect, useState } from "react";
 import { useControlData } from "../Context";
 import cart_bag from "../assets/logo/shopping bag.png";
+import { data_product } from "../Data/ProductInfomation";
 const navLinks = [
   { id: 1, label: "Home", path: "/" },
   { id: 2, label: "Shop", path: "/shop" },
   { id: 3, label: "New Arrival", path: "/new_arrival" },
-  { id: 4, label: "On Sale", path: "/on_sale" },
-  { id: 5, label: "Context Us", path: "/context_us" },
+  { id: 4, label: "Find Store", path: "/store-locator" },
 ];
 
 function Media_Large() {
@@ -22,6 +22,7 @@ function Media_Large() {
     setBgCart,
     userAccount,
     navActive,
+    setShowData,
     setNavActive,
   } = useControlData();
 
@@ -48,7 +49,7 @@ function Media_Large() {
       return (totalCounter += add?.counter);
     });
     setStoreBage(totalCounter);
-  }, [userAccount]);
+  }, [userAccount, currentAccount]);
   return (
     <>
       <header className="bg-pink-300 pt-.5 pb-.5 pl-4 pr-8 fixed w-screen z-70 hidden md:flex justify-between items-center">
@@ -83,9 +84,9 @@ function Media_Large() {
         </div>
       </header>
       <header className="hidden xl:flex fixed top-6 w-screen justify-between items-center z-70 px-8 py-1 bg-white shadow shadow-gray-200">
-        <div className=" cursor-pointer">
+        <Link to={"/"} className=" cursor-pointer ">
           <img src={Logo} alt="Logo Website" className=" h-6" />
-        </div>
+        </Link>
         <ul className="flex justify-center items-center gap-6 font-semibold text-black">
           {navLinks.map(({ id, label, path }) => {
             return (
@@ -96,7 +97,10 @@ function Media_Large() {
                     : ""
                 }`}
                 key={id}
-                onClick={() => setNavActive(id)}
+                onClick={() => {
+                  setNavActive(id);
+                  setShowData(data_product);
+                }}
               >
                 <Link className="text-[15px]" to={path}>
                   {label}

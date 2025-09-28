@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../assets/logo/beauty body.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import KHQR from "../assets/logo/KHQR_Logo.png";
 import J_T from "../assets/logo/JT-Express-Logo.png";
 import VTM from "../assets/logo/vireak-buntham.png";
@@ -9,17 +9,25 @@ import appStore from "../assets/logo/app_ios.png";
 import { useControlData } from "../Context";
 
 function Footer() {
-  const { setPolicy } = useControlData();
+  const { setPolicy, setNavActive, setFaqGuides, handleLogout } =
+    useControlData();
+  const navigator = useNavigate();
   return (
     <React.Fragment>
       <div className="bg-gray-700 py-4 px-6 mt-4">
-        <div className="flex flex-wrap justify-between items-center">
+        <div className="flex flex-wrap justify-between items-center gap-4">
           <h2 className="text-2xl text-white">
             Have questions? Get in touch with Eleganza
           </h2>
-          <Link className=" text-white text-sm border border-gray-400 py-2 px-4 rounded-4xl hover:bg-amber-50 hover:text-black">
-            About Us
-          </Link>
+          <buttom
+            onClick={() => {
+              handleLogout();
+              navigator("/");
+            }}
+            className=" text-white text-sm border border-gray-400 py-2 px-4 rounded-4xl hover:bg-amber-50 hover:text-black"
+          >
+            Logout
+          </buttom>
         </div>
         <div className="border border-gray-500 mt-12 mb-12"></div>
         <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
@@ -48,14 +56,22 @@ function Footer() {
             <Link
               to={"/account/faqguides"}
               className="text-[13px] text-gray-100 cursor-pointer"
+              onClick={() => {
+                setFaqGuides(true);
+                setNavActive(null);
+              }}
             >
               FAQs & Guides
             </Link>
             <Link to={"/"} className="text-[13px] text-gray-100 cursor-pointer">
               Home
             </Link>
-            <Link to={"/store-locator"} className="text-[13px] text-gray-100 cursor-pointer">
-              Find store
+            <Link
+              to={"/about-us"}
+              className="text-[13px] text-gray-100 cursor-pointer"
+              onClick={() => setNavActive(null)}
+            >
+              About Us
             </Link>
           </div>
           <div className="flex flex-col gap-4">
@@ -88,7 +104,6 @@ function Footer() {
                 className="cursor-pointer"
               >
                 <i className="fa-brands fa-instagram text-[#E1306C] text-3xl"></i>
-
               </a>
               <a
                 href="https://t.me/phkaofficial"
