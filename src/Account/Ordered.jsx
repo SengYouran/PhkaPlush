@@ -47,7 +47,7 @@ function Ordered() {
           </Link>
         </div>
       ) : (
-        <div className="flex flex-col">
+        <div className="flex flex-col overflow-y-auto max-h-[70vh] custom-scrollY">
           <div
             className={`${isDetailPage ? "hidden" : "flex flex-col gap-2"} `}
           >

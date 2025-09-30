@@ -8,7 +8,6 @@ import RootLayout from "./rootLayout/RootLayout";
 import Shop from "./rootLayout/Shop";
 import Checkout from "./Checkout/Checkout";
 import Account from "./Account/Account";
-import ControllAccount from "./Account/ControllAccount";
 import Wishlist from "./Page/Wishlist";
 import Profile from "./Account/Profile";
 import Ordered from "./Account/Ordered";

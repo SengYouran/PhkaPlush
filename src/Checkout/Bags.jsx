@@ -34,7 +34,7 @@ function Bags() {
         ></i>
       </span>
       <div className="border border-gray-400 "></div>
-      <div className={`flex flex-col relative`}>
+      <div className={`flex flex-col relative bg-gray-100 p-4`}>
         {bags.map((render) => {
           const discountRat =
             parseFloat(render.discount?.replace("%", "")) / 100 || 0;
@@ -75,7 +75,7 @@ function Bags() {
           );
         })}
         <div
-          className={`bg-gray-100 absolute inset-0 transition-all ease-in-out ${
+          className={`bg-white absolute inset-0 transition-all ease-in-out ${
             showBags
               ? "duration-700 transform translate-y-0 opacity-100 z-10 pointer-events-none"
               : "translate-y-80 opacity-0 -z-70 duration-200"

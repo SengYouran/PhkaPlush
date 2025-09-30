@@ -52,7 +52,7 @@ function Payment() {
 
   return (
     <div className="relative">
-      <div className="border border-white h-2 bg-white rounded mt-4"></div>
+      <div className="border border-gray-200 h-2 bg-gray-200 rounded mt-4"></div>
       <div className="mt-2.5 mx-2.5 flex flex-col gap-2">
         <div className="flex justify-between items-center">
           <h2 className="text-[17px] font-medium">Total</h2>

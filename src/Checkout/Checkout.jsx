@@ -10,7 +10,7 @@ import Footer from "../Page/Footer";
 function Checkout() {
   return (
     <React.Fragment>
-      <div className="mt-2 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="mt-2 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-4">
         <div className="flex flex-col gap-2">
           <div className="w-full">
             <h2 className="text-xl font-medium">Delivery Address</h2>

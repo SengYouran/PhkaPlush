@@ -15,11 +15,13 @@ function ControllAccount() {
   }, [userAccount]);
   return (
     <div
-      className={` gap-4 relative ${showHidden ? "flex " : "hidden md:flex"}`}
+      className={`gap-4 relative ${showHidden ? "flex " : "hidden md:flex"}`}
     >
       <div className="md:absolute left-0 top-4 w-full md:w-[25%] flex flex-col gap-2">
         <div className="flex flex-col gap-2">
-          <h2 className="text-[16px] text-pink-600 font-bold">{information?.fullName}</h2>
+          <h2 className="text-[16px] text-pink-600 font-bold">
+            {information?.fullName}
+          </h2>
           <p className="text-[15px] ">{information?.telephone}</p>
           <div className="border border-gray-700"></div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import dataItems from "../Data/showProduct"; // default export
+import { dataItems } from "../Data/showProduct"; // default export
 import { Link } from "react-router-dom";
 
 function DisplayProduct() {
@@ -89,7 +89,7 @@ function DisplayProduct() {
       {/* Image Layering Section */}
       <div className="relative flex justify-center items-center mt-4 ">
         {dataItems.map((item, i) => (
-          <Link 
+          <Link
             key={i}
             className={`absolute w-[300px] h-[250px] transition-all duration-1000 ease-in-out transform ${getPositionClass(
               i

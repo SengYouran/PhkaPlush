@@ -14,38 +14,49 @@ function RootLayout() {
     useControlData();
 
   return (
-    <div className="font-popins min-h-screen flex flex-col">
+    <>
       <Scroll />
-      <Media_Large />
-      <Mobile />
+      <div>
+        <Media_Large />
+        <Mobile />
+      </div>
+
       <BothForm />
+
+      {/* 🛒 Cart overlay */}
       <div
-        className={`bg-black fixed inset-0  ${
+        className={`bg-black fixed inset-0 transition-opacity duration-300 ${
           bgCart ? "z-70 opacity-10" : "-z-10 opacity-0"
         }`}
         onClick={() => {
           setBgCart(false);
           setShowCart(false);
         }}
-      ></div>
+      />
+
       <Cart />
-      {/* ✅ Login Overlay */}
+
+      {/* 🔒 Login overlay */}
       <div
         className={`bg-gray-200 fixed inset-0 z-60 opacity-70 ${
           showLogin ? "block" : "hidden"
         }`}
         onClick={() => setShowLogin(false)}
-      ></div>
+      />
 
-      {/* ✅ Search */}
       <Search />
       <PrivacyPolicy />
-      {/* ✅ Main content */}
-      <main className="pt-18 mx-4 xl:mx-32 ">
-        <Outlet />
-      </main>
-    </div>
+
+      {/* ✅ Main content area */}
+      <div className="max-w-[2000px] mx-auto px-4">
+        <main className="pt-18 mx-4 xl:mx-32">
+          <Outlet />
+        </main>
+      
+      </div>
+    </>
   );
 }
+
 
 export default RootLayout;

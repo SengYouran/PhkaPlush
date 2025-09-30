@@ -26,7 +26,7 @@ const brandDelivery = [
     days: "Delivery within 2-3 days.",
   },
 ];
-function Delivery({ bgDelivery, setBgDelivery, currently, selectedDelivery }) {
+function Delivery({ setBgDelivery, currently, selectedDelivery }) {
   const { handleDelivery } = useControlData();
   const [selected, setSelected] = useState(null);
   return (

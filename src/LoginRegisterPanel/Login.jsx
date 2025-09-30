@@ -7,6 +7,8 @@ function Login({ isLogin, setIsLogin }) {
   const { userAccount, setCurrentAccount, setShowLogin } = useControlData();
   const [telephoneLogin, setTelephoneLogin] = useState("");
   const [passwordLogin, setPasswordLogin] = useState("");
+  const [showPassd1, setShowPassd1] = useState(false);
+  const [isError, setIsError] = useState(false);
   const navigator = useNavigate();
   function handleLogin(e) {
     e.preventDefault();
@@ -18,8 +20,6 @@ function Login({ isLogin, setIsLogin }) {
       setCurrentAccount(checkLogin);
       setShowLogin(false);
       navigator("/");
-    } else {
-      setIsLogin(true);
     }
   }
   return (
@@ -44,8 +44,7 @@ function Login({ isLogin, setIsLogin }) {
         <h2 className="text-[15px] font-medium">Password*</h2>
         <span className=" relative">
           <input
-            // type={`${showPassd1 ? "text" : "password"}`}
-            type="password"
+            type={`${showPassd1 ? "text" : "password"}`}
             className="border border-pink-500 w-full h-[35px] pl-2 bg-white outline-0 rounded"
             name="passwordRegister"
             id="passdLogin"
@@ -54,18 +53,26 @@ function Login({ isLogin, setIsLogin }) {
             onChange={(e) => setPasswordLogin(e.target.value)}
           />
           <i
-            className={` fa-solid fa-eye-slash absolute top-[20%] right-4 text-gray-400 cursor-pointer`}
-            //onClick={() => setShowPassd1(true)}
-          ></i>
-          <i
-            className={`fa-solid fa-eye absolute top-[20%] right-4 text-gray-400 cursor-pointer hidden`}
-            // onClick={() => setShowPassd1(false)}
+            className={`fa-solid ${
+              showPassd1 ? "fa-eye" : "fa-eye-slash"
+            } absolute top-[20%] right-4 cursor-pointer ${
+              showPassd1 ? "text-blue-400" : "text-gray-400"
+            }`}
+            onClick={() => setShowPassd1(!showPassd1)}
           ></i>
         </span>
+        <h2
+          className={`text-red-600 text-sm text-right ${
+            isError ? "blcok" : "hidden"
+          }`}
+        >
+          Incorrect phone or password
+        </h2>
       </div>
       <button
         className=" w-full h-[35px] bg-pink-500 text-white hover:bg-pink-600 cursor-pointer rounded mt-2"
         type="submit"
+        onClick={() => setIsError(true)}
       >
         LOGIN
       </button>

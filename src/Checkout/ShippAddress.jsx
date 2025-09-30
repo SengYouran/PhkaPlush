@@ -31,7 +31,7 @@ function ShippAddress() {
 
   return (
     <section>
-      <div className="flex flex-col gap-6 bg-white py-10 px-2 mt-2 rounded">
+      <div className="flex flex-col gap-6 bg-gray-100 py-10 px-4 mt-2 rounded">
         <div
           className={`bg-gray-200 fixed inset-0 ${
             currently == undefined ? "z-75 opacity-70" : "-z-75 opacity-0"
@@ -109,10 +109,13 @@ function ShippAddress() {
         )}
         <div className="border border-gray-200"></div>
         <div className="flex justify-between items-center">
-          {selectedDelivery && (
+          {selectedDelivery ? (
             <div className="flex items-center gap-1">
               <div className="w-10 h-10 rounded-[50%]">
-                <img src={selectedDelivery.brand_logo} alt="" />
+                <img
+                  src={selectedDelivery.brand_logo}
+                  alt="Logo Brand delivery"
+                />
               </div>
               <div className="flex flex-col gap-1">
                 <h2 className="text-[15px]">
@@ -120,6 +123,18 @@ function ShippAddress() {
                 </h2>
                 <p className="text-xs">
                   {selectedDelivery.brand_name} {selectedDelivery.days}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="flex items-center gap-1">
+              <div className="w-10 h-10 rounded-[50%]">
+                <img src={vireak_buntham} alt="Logo Brand delivery" />
+              </div>
+              <div className="flex flex-col gap-1">
+                <h2 className="text-[15px]">Delivery: $1.25</h2>
+                <p className="text-xs">
+                  Virak Buntham Delivery within 2-3 days.
                 </p>
               </div>
             </div>

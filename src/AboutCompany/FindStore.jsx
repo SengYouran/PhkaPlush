@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Footer from "../Page/Footer";
-import useInViewAnimation from "../Custom_hook/useInViewAnimation";
 
 const locations = [
   {
@@ -54,7 +53,6 @@ const locations = [
 const FindStore = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [viewMap, setViewMap] = useState(false);
-  const productRefs = useInViewAnimation("active", 200); // 100ms delay per product
   return (
     <React.Fragment>
       <div className="min-h-screen bg-gray-100 p-6 relative">
@@ -66,8 +64,7 @@ const FindStore = () => {
           {locations.map((loc, index) => (
             <div
               key={index}
-              ref={(el) => (productRefs.current[index] = el)}
-              className={`fade-in bg-white p-4 rounded-lg shadow hover:shadow-md transition ${
+              className={`bg-white p-4 rounded-lg shadow hover:shadow-md transition ${
                 selectedLocation === loc ? "ring-2 ring-pink-500" : ""
               }`}
               onClick={() => {

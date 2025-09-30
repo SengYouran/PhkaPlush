@@ -12,7 +12,7 @@ function Wishlist() {
     );
     const getWishlist = userIndex?.storeWishlist || {};
     setDataWishlist(getWishlist);
-  }, [userAccount]);
+  }, [userAccount, currentAccount]);
   return (
     <React.Fragment>
       {dataWishlist?.length === 0 ? (

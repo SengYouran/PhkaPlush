@@ -35,7 +35,7 @@ function Contact() {
   }, [userAccount]);
 
   return (
-    <div className="bg-white mt-4 py-8 px-3 rounded">
+    <div className="bg-gray-100 mt-4 py-8 px-3 rounded">
       <div className="flex items-center gap-2 flex-wrap">
         {contacts.map((render) => (
           <div
