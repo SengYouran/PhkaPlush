@@ -309,7 +309,7 @@ function ShippAddress() {
                   type="text"
                   name="countryCheckout"
                   className="text-sm font-medium border border-pink-500 pl-2 w-full h-[2.5rem]"
-                  value={deliveryAdd?.country ?? ""}
+                  value={deliveryAdd?.country ?? "Cambodia"}
                   readOnly
                 />
                 <i className="fa-solid fa-chevron-down absolute top-9 right-2 text-sm"></i>
