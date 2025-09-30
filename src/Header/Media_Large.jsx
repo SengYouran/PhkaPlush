@@ -53,11 +53,11 @@ function Media_Large() {
   return (
     <>
       <header className="bg-pink-300 pt-.5 pb-.5 pl-4 pr-8 fixed w-screen z-70 hidden md:flex justify-between items-center">
-        <h2 className="text-center text-sx">
+        <h2 className="text-center text-sm ">
           Free shipping on orders over $50, free returns - order now!
         </h2>
         <div className="flex items-center gap-2">
-          <h2 className="text-sx">Follow Us On</h2>
+          <h2 className="text-m">Follow Us On</h2>
           <div className="flex items-center gap-4">
             <a
               href="https://web.facebook.com/phka.official/?_rdc=1&_rdr#"
