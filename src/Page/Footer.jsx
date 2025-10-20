@@ -24,7 +24,7 @@ function Footer() {
               handleLogout();
               navigator("/");
             }}
-            className=" text-white text-sm border border-gray-400 py-2 px-4 rounded-4xl hover:bg-amber-50 hover:text-black"
+            className="cursor-pointer text-white text-sm border border-gray-400 py-2 px-4 rounded-4xl hover:bg-amber-50 hover:text-black"
           >
             Logout
           </buttom>
