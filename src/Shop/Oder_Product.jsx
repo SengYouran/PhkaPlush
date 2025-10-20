@@ -88,7 +88,7 @@ function Order_Product() {
 
           {/* Scrollable Image Container */}
           <div
-            className="conrainer-scroll overflow-x-auto flex w-full h-full scroll-smooth"
+            className="container-scroll overflow-x-auto flex w-full h-full scroll-smooth"
             ref={scrollRef}
           >
             {images.map((img, i) => (

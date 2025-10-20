@@ -11,19 +11,29 @@ function Banner() {
   const refContainer_scroll = useRef(null);
   const currentIndexRef = useRef(0); // for internal tracking
   const [currentIndex, setCurrentIndex] = useState(0); // for dot UI
+  const [reset, setReset] = useState(null);
   const [isJumping, setIsJumping] = useState(false);
-  const extendedBanner = [...banner, banner[0]];
+  const extendedBanner = [...banner, banner[0]]; // Clone first image for looping
 
   const scrollToIndex = (index, smooth = true) => {
     const container = refContainer_scroll.current;
     if (!container) return;
+
     const width = container.offsetWidth;
+    const left = index * width;
+
+    // Logging
+    
 
     container.style.scrollBehavior = smooth ? "smooth" : "auto";
-    container.scrollTo({
-      left: index * width ,
-      behavior: smooth ? "smooth" : "auto",
-    });
+    container.scrollTo({ left });
+
+    // After jump (instant), re-enable smooth for next scrolls
+    if (!smooth) {
+      requestAnimationFrame(() => {
+        container.style.scrollBehavior = "smooth";
+      });
+    }
   };
 
   // Auto scroll every 5s
@@ -31,27 +41,29 @@ function Banner() {
     const interval = setInterval(() => {
       currentIndexRef.current += 1;
 
-      // If reached clone slide
       if (currentIndexRef.current === banner.length) {
+        // Scroll to clone (smooth)
         setIsJumping(true);
         scrollToIndex(currentIndexRef.current, true);
-
+        // Then instantly jump to real first slide
         setTimeout(() => {
           scrollToIndex(0, false);
           currentIndexRef.current = 0;
           setCurrentIndex(0);
           setIsJumping(false);
-        }, 500); // wait for scroll to finish
+          setReset(0);
+        }, 500); // match transition duration
       } else {
         scrollToIndex(currentIndexRef.current, true);
         setCurrentIndex(currentIndexRef.current);
+        setReset(null);
       }
     }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
-  // Handle manual scroll (user swiping)
+  // Handle manual scroll
   const handleScroll = () => {
     const container = refContainer_scroll.current;
     if (!container) return;
@@ -63,7 +75,7 @@ function Banner() {
     currentIndexRef.current = index;
     setCurrentIndex(index);
 
-    // If clone slide and jumping logic missed
+    // If scrolled to clone (last slide), reset to real first
     if (index === banner.length && !isJumping) {
       setIsJumping(true);
       setTimeout(() => {
@@ -76,15 +88,26 @@ function Banner() {
   };
 
   return (
-    <>
+    <React.Fragment>
       <div
-        className="conrainer-scroll flex overflow-x-auto w-screen -ml-4.5 md:ml-0 md:w-full h-[50vh] xl:h-full scroll-smooth "
+        className="container-scroll flex overflow-x-auto w-screen md:ml-0 md:w-full h-[50vh] xl:h-full scroll-smooth"
         ref={refContainer_scroll}
         onScroll={handleScroll}
+        style={{
+          scrollSnapType: "x mandatory",
+        }}
       >
         {extendedBanner.map((src, i) => (
-          <span className=" w-full h-full customer_scroll" key={i}>
-            <img src={src} alt={`Banner Of ${i}`} className="w-full h-full" />
+          <span
+            className="w-full h-full customer_scroll"
+            key={i}
+            style={{ scrollSnapAlign: "start", flexShrink: 0 }}
+          >
+            <img
+              src={src}
+              alt={`Banner ${i}`}
+              className={`w-full h-full ${reset === 0 ? "ml-2.5" : ""}`}
+            />
           </span>
         ))}
       </div>
@@ -94,13 +117,13 @@ function Banner() {
         {banner.map((_, i) => (
           <div
             key={i}
-            className={`w-[30px] h-[3px] bg-green-100 rounded relative overflow-hidden auto-border ${
+            className={`auto-border w-[60px] h-[1px] bg-gray-900 rounded relative overflow-hidden ${
               i === currentIndex % banner.length ? "active" : ""
             }`}
           ></div>
         ))}
       </div>
-    </>
+    </React.Fragment>
   );
 }
 

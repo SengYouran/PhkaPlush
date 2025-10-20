@@ -93,7 +93,7 @@ function FAQsGuides() {
             </div>
           </div>
           <div
-            className={`overflow-hidden transition-[max-height]  duration-900 ease-in-out ${
+            className={`overflow-hidden transition-[max-height] duration-900 ease-in-out ${
               isOpenPay ? "max-h-[500px]" : " max-h-[0]"
             }`}
           >
