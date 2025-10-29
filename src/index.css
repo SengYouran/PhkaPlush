@@ -11,6 +11,9 @@ body {
   overflow: hidden;
   overflow-x: hidden;
   overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  
 }
 .container-scroll {
   scroll-snap-type: x mandatory;

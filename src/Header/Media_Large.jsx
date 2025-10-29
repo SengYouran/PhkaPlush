@@ -52,7 +52,7 @@ function Media_Large() {
   }, [userAccount, currentAccount]);
   return (
     <>
-      <header className="bg-pink-300 pt-.5 pb-.5 pl-4 pr-8 fixed w-screen z-70 hidden md:flex justify-between items-center">
+      <header className="bg-pink-300 max-w-[2000px] pt-.5 pb-.5 pl-4 pr-8 fixed w-screen z-70 hidden md:flex justify-between items-center">
         <h2 className="text-center text-sm ">
           Free shipping on orders over $50, free returns - order now!
         </h2>
@@ -83,7 +83,7 @@ function Media_Large() {
           </div>
         </div>
       </header>
-      <header className="hidden xl:flex fixed top-6 w-screen justify-between items-center z-70 px-8 py-1 bg-white shadow shadow-gray-200">
+      <header className="hidden max-w-[2000px] xl:flex fixed top-6 w-screen justify-between items-center z-70 px-8 py-1 bg-white shadow shadow-gray-200">
         <Link to={"/"} className=" cursor-pointer ">
           <img src={Logo} alt="Logo Website" className=" h-6" />
         </Link>
