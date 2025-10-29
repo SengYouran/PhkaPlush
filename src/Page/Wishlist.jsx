@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useControlData } from "../Context";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 function Wishlist() {
   const { userAccount, currentAccount, handleSaveWishlist, handleCart } =
@@ -33,9 +34,12 @@ function Wishlist() {
       ) : (
         <div className="grid gap-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-0 md:mt-8">
           {dataWishlist?.map((render) => (
-            <div className="flex flex-col gap-4 relative " key={render?.id}>
+            <div
+              className="flex flex-col gap-4 relative bg-white p-2"
+              key={render?.id}
+            >
               <i
-                className="fa-solid fa-trash absolute top-0 right-0 cursor-pointer"
+                className="fa-solid fa-trash absolute top-2 right-2 cursor-pointer"
                 onClick={() => handleSaveWishlist(render?.id)}
               ></i>
               <div className="flex gap-4">
@@ -78,6 +82,9 @@ function Wishlist() {
           ))}
         </div>
       )}
+      <div className="mt-12">
+        <Footer />
+      </div>
     </React.Fragment>
   );
 }

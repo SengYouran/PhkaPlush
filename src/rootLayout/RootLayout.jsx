@@ -49,7 +49,7 @@ function RootLayout() {
 
       {/* ✅ Main content area */}
       <div className="max-w-[2000px]">
-        <main className="pt-18 mx-4 xl:mx-32">
+        <main className="pt-18 md:mx-4 xl:mx-32">
           <Outlet />
         </main>
       

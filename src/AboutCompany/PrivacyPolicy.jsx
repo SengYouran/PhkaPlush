@@ -7,7 +7,7 @@ const PrivacyPolicy = () => {
   return (
     <React.Fragment>
       <div
-        className={` bg-white fixed mx-6 p-8 rounded-2xl transition-all duration-500 ease-in-out ${
+        className={`bg-white fixed mx-6 p-8 rounded-2xl transition-all duration-500 ease-in-out ${
           policy ? "bottom-10 left-0 z-80" : "duration-0 bottom-0 opacity-0 -z-80"
         }`}
       >
@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
           className="fa-solid fa-xmark text-xl absolute right-6 top-2 cursor-pointer"
           onClick={() => setPolicy(false)}
         ></i>
-        <div className="overflow-x-auto max-h-[70vh] border border-gray-300 bg-gray-50 rounded px-4 py-2 flex flex-col gap-4">
+        <div className="overflow-x-auto max-h-[80vh] md:max-h-[70vh] border border-gray-300 bg-gray-50 rounded px-4 py-2 flex flex-col gap-4">
           <h2 className="text-xl font-medium">Privacy Policy</h2>
 
           <p className=" text-[17px] font-[400]">

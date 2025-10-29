@@ -136,7 +136,7 @@ function Media_Large() {
                 }}
               >
                 <img src={cart_bag} alt="StoreBags" />
-                <p className="absolute top-[65%] left-1/2 transform -translate-1/2 font-medium text-xl text-pink-500">
+                <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-medium text-xl text-pink-500">
                   {storeBags}
                 </p>
               </span>
