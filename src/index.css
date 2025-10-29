@@ -11,9 +11,6 @@ body {
   overflow: hidden;
   overflow-x: hidden;
   overflow-y: auto;
-  display: flex;
-  justify-content: center;
-  
 }
 .container-scroll {
   scroll-snap-type: x mandatory;
@@ -123,3 +120,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 1;
   transform: translateY(0);
 }
+

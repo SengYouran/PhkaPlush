@@ -64,7 +64,7 @@ function ShopProduct() {
             </p>
 
             <div className="flex justify-between items-center">
-              <p className="text-[15px] font-bold text-pink-600">
+              <p className="text-[17px] font-bold text-pink-600">
                 {render?.product_price}
               </p>
               <div className="flex items-center gap-2">
